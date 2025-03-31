@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: e33243185c0e3c64f81e9c7c1e845a99
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss_Catching_3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 156
+        width: 96
+        height: 100
+      alignment: 9
+      pivot: {x: 0.46280828, y: 0.4421936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de85b9992f752e4ea0926959707e1e9
+      internalID: -1719040244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 156
+        width: 59
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0003c608e2aa322419425e645d0556d8
+      internalID: 1560567118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 156
+        width: 78
+        height: 100
+      alignment: 9
+      pivot: {x: 0.48370606, y: 0.44576308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fcb1cd5591ae9942ae513c8752cdcf3
+      internalID: 423516778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_19
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 156
+        width: 59
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864f7655dde72d548b794c7fc41ed480
+      internalID: 1949688409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_20
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 156
+        width: 59
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f322a8361cb5ada42a97181f26491ccc
+      internalID: -736132566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_22
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 140
+        width: 100
+        height: 108
+      alignment: 9
+      pivot: {x: 0.4761972, y: 0.41499117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e6f6acf98dffd49bda80cc2cf8662c
+      internalID: -1229767043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 140
+        width: 100
+        height: 104
+      alignment: 9
+      pivot: {x: 0.4761972, y: 0.43133897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08102d2da7a412b408da1e9e8a5b7d32
+      internalID: -989537502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_45
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2
+        width: 62
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746e0d08f37afc242ad3ceff7f51a226
+      internalID: -914108407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_46
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 5
+        width: 65
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97aa4c0b211a82f448a5535f0ce8d7f7
+      internalID: 66460995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_47
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 3
+        width: 65
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bdf0b4b2c77324bb438223fe3dee44
+      internalID: 98422120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Catching_48
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 3
+        width: 65
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5e18fa5acdbe641a17f3c43a481fe0
+      internalID: -1575923968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boss_Catching_0: 1060912521
+      Boss_Catching_1: 49216996
+      Boss_Catching_10: -1818611754
+      Boss_Catching_11: -1182678016
+      Boss_Catching_12: -54929844
+      Boss_Catching_13: -813056613
+      Boss_Catching_14: 1020421147
+      Boss_Catching_15: 1366355021
+      Boss_Catching_16: -164384894
+      Boss_Catching_17: -2103989302
+      Boss_Catching_18: -148955059
+      Boss_Catching_19: 1949688409
+      Boss_Catching_2: -1196427431
+      Boss_Catching_20: -736132566
+      Boss_Catching_21: -1948703955
+      Boss_Catching_22: -1229767043
+      Boss_Catching_23: -1005150879
+      Boss_Catching_24: -989537502
+      Boss_Catching_25: 154182759
+      Boss_Catching_26: -1779336525
+      Boss_Catching_27: -1688933246
+      Boss_Catching_28: -713884225
+      Boss_Catching_29: 1372146976
+      Boss_Catching_3: -1719040244
+      Boss_Catching_30: 237281747
+      Boss_Catching_31: -1812738220
+      Boss_Catching_32: 1213918742
+      Boss_Catching_33: -373321170
+      Boss_Catching_34: -1661318707
+      Boss_Catching_35: 385786057
+      Boss_Catching_36: 1966553311
+      Boss_Catching_37: 680376073
+      Boss_Catching_38: -1889804627
+      Boss_Catching_39: -512541852
+      Boss_Catching_4: 1802562773
+      Boss_Catching_40: -1677640152
+      Boss_Catching_41: 82845097
+      Boss_Catching_42: 526926135
+      Boss_Catching_43: 469871897
+      Boss_Catching_44: -4266162
+      Boss_Catching_45: -914108407
+      Boss_Catching_46: 66460995
+      Boss_Catching_47: 98422120
+      Boss_Catching_48: -1575923968
+      Boss_Catching_5: 1560567118
+      Boss_Catching_6: 423516778
+      Boss_Catching_7: -988251778
+      Boss_Catching_8: 273332883
+      Boss_Catching_9: 759566446
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
