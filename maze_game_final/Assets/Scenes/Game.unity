@@ -545,6 +545,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1679434118}
   - component: {fileID: 1679434119}
+  - component: {fileID: 1679434122}
+  - component: {fileID: 1679434121}
+  - component: {fileID: 1679434120}
   m_Layer: 0
   m_Name: DefaultPlayer Pref
   m_TagString: Untagged
@@ -603,6 +606,62 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.8, y: 0.2}
   m_Direction: 1
+--- !u!114 &1679434120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679434117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef45e64a3a629b43829521b2186a0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 275631278}
+  playerTr: {fileID: 275631277}
+--- !u!114 &1679434121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679434117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854613fc82dc47a47b93307870a92eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 1875867883}
+  playerRb: {fileID: 1679434122}
+  movementSpeed: 5
+--- !u!50 &1679434122
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679434117}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1706000405
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +730,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 207289132981998326, guid: 3c27716d7c4cb874f8118bfd25c2c4aa, type: 3}
   m_PrefabInstance: {fileID: 4905129806461995349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1875867883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9095742893353110838, guid: 3c27716d7c4cb874f8118bfd25c2c4aa, type: 3}
+  m_PrefabInstance: {fileID: 4905129806461995349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6d3d3ebde62c49b598f55d9da74ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4905129806461995349
 PrefabInstance:
   m_ObjectHideFlags: 0

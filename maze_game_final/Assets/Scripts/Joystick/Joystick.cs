@@ -14,7 +14,8 @@ namespace Joystick
         public event Action OnJoystickDeactivated = delegate { };
         public event Action<Vector2> OnJoystickActivated = delegate { };
         public event Action<Vector2> OnJoystickChanged = delegate { };
-        
+
+        protected bool isProceeding = false;
         protected Touch firstTouch = default;
         protected Vector2 movementDirection = default;
         protected Vector2 originPosition = default;
@@ -27,17 +28,21 @@ namespace Joystick
                 switch (firstTouch.phase)
                 {
                     case TouchPhase.Began:
+                        isProceeding = true;
                         originPosition = firstTouch.position;
                         OnJoystickActivated(firstTouch.position);
                         break;
                     case TouchPhase.Ended:
+                        isProceeding = false;
                         OnJoystickDeactivated();
                         break;
-                    case TouchPhase.Moved:
-                        movementDirection = (firstTouch.position - originPosition).normalized;
-                        OnJoystickChanged(movementDirection);
-                        break;
                 }
+            }
+
+            if(isProceeding)
+            {
+                movementDirection = (firstTouch.position - originPosition).normalized;
+                OnJoystickChanged(movementDirection);
             }
         }
 
