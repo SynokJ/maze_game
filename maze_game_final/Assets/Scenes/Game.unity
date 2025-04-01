@@ -634,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 1875867883}
   playerRb: {fileID: 1679434122}
-  movementSpeed: 5
+  movementSpeed: 20
 --- !u!50 &1679434122
 Rigidbody2D:
   serializedVersion: 4
