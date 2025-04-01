@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 2104004980574245788, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
+      propertyPath: openSceneName
+      value: Game
+      objectReference: {fileID: 0}
     - target: {fileID: 2951387484187434935, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -641,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 2975515761049504910, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027403518403611569, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
+      propertyPath: openSceneName
+      value: Game
       objectReference: {fileID: 0}
     - target: {fileID: 5962743005019108425, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
       propertyPath: m_AnchorMax.y
