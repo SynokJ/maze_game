@@ -1,6 +1,5 @@
 namespace UI.Utils
 {
-    using UnityEditor;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -9,9 +8,9 @@ namespace UI.Utils
     /// </summary>
     public class OpenSceneButton : AbstractButtonView
     {
-        [SerializeField] protected SceneAsset openScene = default;
+        [SerializeField] protected string openSceneName = default;
 
         protected override void OnButtonClicked()
-            => SceneManager.LoadSceneAsync(openScene.name);
+            => SceneManager.LoadSceneAsync(openSceneName);
     }
 }

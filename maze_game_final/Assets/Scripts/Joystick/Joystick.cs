@@ -2,7 +2,6 @@ namespace Joystick
 {
     using System;
     using UnityEngine;
-    using UnityEngine.EventSystems;
 
     /// <summary>
     /// class of joystick system
@@ -22,35 +21,24 @@ namespace Joystick
 
         protected virtual void Update()
         {
-            if (IsTouchAccepted())
+            if(Input.GetMouseButtonDown(0))
             {
-                firstTouch = Input.GetTouch(0);
-                switch (firstTouch.phase)
-                {
-                    case TouchPhase.Began:
-                        isProceeding = true;
-                        originPosition = firstTouch.position;
-                        OnJoystickActivated(firstTouch.position);
-                        break;
-                    case TouchPhase.Ended:
-                        isProceeding = false;
-                        OnJoystickDeactivated();
-                        break;
-                }
+                isProceeding = true;
+                originPosition = Input.mousePosition;
+                OnJoystickActivated(Input.mousePosition);
             }
 
-            if(isProceeding)
+            if(Input.GetMouseButtonUp(0))
             {
-                movementDirection = (firstTouch.position - originPosition).normalized;
+                isProceeding = false;
+                OnJoystickDeactivated();
+            }
+
+            if (isProceeding)
+            {
+                movementDirection = ((Vector2)Input.mousePosition - originPosition).normalized;
                 OnJoystickChanged(movementDirection);
             }
-        }
-
-        protected virtual bool IsTouchAccepted()
-        {
-            bool isTouchExists = Input.touchCount > 0;
-            bool isTouchOverUI = EventSystem.current.IsPointerOverGameObject();
-            return isTouchExists && !isTouchOverUI;
         }
     }
 }
