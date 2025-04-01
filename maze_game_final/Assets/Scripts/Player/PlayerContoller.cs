@@ -12,19 +12,18 @@ namespace Player
         public event Action OnPlayerStopped = delegate { };
         public event Action<Vector2> OnPlayerMoved = delegate { };
 
-        [SerializeField] protected Joystick joystick = default;
         [SerializeField] protected Rigidbody2D playerRb = default;
         [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
 
         protected Vector2 movementStep = default;
 
-        protected virtual void OnEnable()
+        public virtual void SubscribeJoystick(Joystick joystick)
         {
             joystick.OnJoystickChanged += MovePlayer;
             joystick.OnJoystickDeactivated += StopPlayer;
         }
 
-        protected virtual void OnDisable()
+        public virtual void UnsubscribeJoystick(Joystick joystick)
         {
             joystick.OnJoystickChanged -= MovePlayer;
             joystick.OnJoystickDeactivated -= StopPlayer;
