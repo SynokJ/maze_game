@@ -1,12 +1,13 @@
 namespace Joystick
 {
+    using Player;
     using System;
     using UnityEngine;
 
     /// <summary>
     /// class of joystick system
     /// </summary>
-    public class Joystick : MonoBehaviour
+    public class Joystick : AbstractPlayerProvider
     {
         public Vector2 OriginPosition => originPosition;
         public Vector2 CurrentPosition => firstTouch.position;
@@ -18,6 +19,15 @@ namespace Joystick
         protected Touch firstTouch = default;
         protected Vector2 movementDirection = default;
         protected Vector2 originPosition = default;
+
+        protected override void InitPlayer()
+        {
+            base.InitPlayer();
+            controller.SubscribeJoystick(this);
+        }
+
+        protected override void DestroyPlayer()
+            => controller.UnsubscribeJoystick(this);
 
         protected virtual void Update()
         {
