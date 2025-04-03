@@ -320,8 +320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verWallPref: {fileID: 11400000, guid: 6bf79bcb4d786434e9ab44e68da99767, type: 2}
   horWallPref: {fileID: 11400000, guid: e43603bb2b8f47b43a808e6f80ee420f, type: 2}
-  levelWidth: 20
-  levelHeight: 12
+  levelWidth: 11
+  levelHeight: 11
 --- !u!1 &538140365
 GameObject:
   m_ObjectHideFlags: 0

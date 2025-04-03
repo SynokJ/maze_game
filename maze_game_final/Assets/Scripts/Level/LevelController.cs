@@ -1,8 +1,8 @@
 namespace Level
 {
-    using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
+    using System.Collections.Generic;
 
     public class LevelController : MonoBehaviour
     {
@@ -36,6 +36,7 @@ namespace Level
         {
             InitDefaultLevelMap();
             InitSpawnWalkableArea();
+            InitMapPath();
             DebugLevelMap();
         }
 
@@ -92,6 +93,67 @@ namespace Level
             data[startSpawnPoint].Neighboards.ToList().ForEach(x => { x.SetPositionState(LevelCellState.walkable); });
         }
 
+        protected virtual void InitMapPath()
+        {
+            tempCellNeighbords = new LevelCell[data[startSpawnPoint].Neighboards.Length];
+            data[startSpawnPoint].Neighboards.CopyTo(tempCellNeighbords, 0);
+
+            foreach (LevelCell tempCell in tempCellNeighbords)
+            {
+                GeneratePath(tempCell);
+            }
+        }
+
+        protected virtual LevelCell GeneratePath(LevelCell startCell)
+        {
+            startCell.SetPositionState(LevelCellState.walkable);
+            LevelCell[] tempNbs = RandomizeArray(startCell.Neighboards);
+
+            int n = 0;
+            Color[] colors = new Color[] { Color.green, Color.red, Color.blue, Color.black };
+
+            foreach (LevelCell tempCell in tempNbs)
+            {
+                if (tempCell.State == LevelCellState.walkable) continue;
+                tempCell.TrySetRootNode(startCell);
+                LevelCell lastCell = GeneratePath(tempCell);
+                DebugLevelPath(lastCell, colors[n]);
+                ++n;
+            }
+
+            return tempNbs.Last();
+        }
+
+        // TODO: FIX
+        protected virtual LevelCell[] RandomizeArray(LevelCell[] data)
+        {
+            Random.InitState(Random.Range(0, data.Length));
+            LevelCell[] result = new LevelCell[data.Length];
+            data.CopyTo(result, 0);
+
+            int[] ids = new int[data.Length];
+            for (int i = 0; i < data.Length; ++i)
+                ids[i] = i;
+
+            for (int i = 0; i < data.Length; ++i)
+            {
+                int tmp = ids[i];
+                int id = Random.Range(0, data.Length);
+                ids[i] = ids[id];
+                ids[id] = tmp;
+            }
+
+            int size = data.Length;
+            for (int i = 0; i < size; ++i)
+            {
+                LevelCell temp = result[i];
+                result[i] = result[ids[i]];
+                result[ids[i]] = temp;
+            }
+
+            return result;
+        }
+
         protected virtual void DebugLevelMap()
         {
             string res = default;
@@ -104,6 +166,15 @@ namespace Level
                 }
             });
             Debug.Log(res);
+        }
+
+        protected virtual void DebugLevelPath(LevelCell last, Color color)
+        {
+            Debug.Log($"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{last.Position}</color>");
+            if (last.RootNode != null)
+            {
+                DebugLevelPath(last.RootNode, color);
+            }
         }
 
         protected virtual void GenerateWall(WallSO tempWall, Vector2 posOffset)

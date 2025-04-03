@@ -7,6 +7,7 @@ namespace Level
         protected const char WALKABLE_AREA_SIGN = '-';
         protected const char UNWALKABLE_AREA_SIGN = '*';
 
+        public LevelCell RootNode => rootNode;
         public LevelCell[] Neighboards => currentNeighboards;
         public Vector2 Position => new Vector2(posX, posY);
         public LevelCellState State => state;
