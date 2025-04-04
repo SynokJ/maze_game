@@ -9,13 +9,14 @@ namespace Level
     {
         protected const float SPAWN_STEP_POSITION = 4.0f;
 
-        [SerializeField] protected WallSO verWallPref = default;
-        [SerializeField] protected WallSO horWallPref = default;
+        public event Action<LevelCell> OnLevelPathGenerated = delegate { };
+        public int LevelWidth => levelWidth;
+        public int LevelHeight => levelHeight;
+
         [SerializeField, Min(3)] protected int levelWidth = 3;
         [SerializeField, Min(3)] protected int levelHeight = 3;
 
         protected List<LevelCell> data = new List<LevelCell>();
-        protected List<List<LevelCell>> dataPaths = new List<List<LevelCell>>();
         protected LevelCell[] tempCellNeighbords = null;
         protected GameObject tempWallPref = default;
         protected Vector2 tempSpawnOffset = default;
@@ -86,9 +87,6 @@ namespace Level
             return true;
         }
 
-        protected virtual bool IsWallsBroder()
-            => rowIterator == 0 || rowIterator == levelHeight - 1 || colIterator == 0 || colIterator == levelWidth - 1;
-
         protected virtual void InitSpawnWalkableArea()
         {
             data[startSpawnPoint].SetPositionState(LevelCellState.walkable);
@@ -108,6 +106,7 @@ namespace Level
                 LevelCell lastCell = GeneratePath(tempCell);
                 string res = default;
                 DebugLevelPath(lastCell, ref res);
+                OnLevelPathGenerated(lastCell);
                 Debug.Log($"<color=#{ColorUtility.ToHtmlStringRGB(colors[n])}>{res}</color>");
                 ++n;
             }
@@ -126,7 +125,7 @@ namespace Level
             {
                 if (tempCell.State == LevelCellState.walkable) continue;
                 tempCell.TrySetRootNode(startCell);
-                return GeneratePath(tempCell);
+                GeneratePath(tempCell);
             }
             return tempNbs.Last();
         }
@@ -177,15 +176,6 @@ namespace Level
             {
                 DebugLevelPath(last.RootNode, ref res);
             }
-        }
-
-        protected virtual void GenerateWall(WallSO tempWall, Vector2 posOffset)
-        {
-            tempHorPos = SPAWN_STEP_POSITION * colIterator;
-            tempVerPos = SPAWN_STEP_POSITION * rowIterator;
-            tempSpawnPos = new Vector2(tempHorPos, tempVerPos);
-            tempWallPref = tempWall.InstantiateWall(tempSpawnPos + posOffset, Quaternion.identity).gameObject;
-            tempWallPref.name = tempWallPref.transform.position.ToString();
         }
     }
 }
