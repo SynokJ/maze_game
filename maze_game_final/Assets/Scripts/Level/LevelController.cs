@@ -1,5 +1,6 @@
 namespace Level
 {
+    using System;
     using System.Linq;
     using UnityEngine;
     using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Level
         [SerializeField, Min(3)] protected int levelHeight = 3;
 
         protected List<LevelCell> data = new List<LevelCell>();
+        protected List<List<LevelCell>> dataPaths = new List<List<LevelCell>>();
         protected LevelCell[] tempCellNeighbords = null;
         protected GameObject tempWallPref = default;
         protected Vector2 tempSpawnOffset = default;
@@ -98,57 +100,57 @@ namespace Level
             tempCellNeighbords = new LevelCell[data[startSpawnPoint].Neighboards.Length];
             data[startSpawnPoint].Neighboards.CopyTo(tempCellNeighbords, 0);
 
+            int n = 0;
+            Color[] colors = new Color[] { Color.green, Color.red, Color.yellow, Color.black };
+
             foreach (LevelCell tempCell in tempCellNeighbords)
             {
-                GeneratePath(tempCell);
+                LevelCell lastCell = GeneratePath(tempCell);
+                string res = default;
+                DebugLevelPath(lastCell, ref res);
+                Debug.Log($"<color=#{ColorUtility.ToHtmlStringRGB(colors[n])}>{res}</color>");
+                ++n;
             }
         }
 
         protected virtual LevelCell GeneratePath(LevelCell startCell)
         {
+            if (IsEdgeCell(startCell))
+            {
+                return startCell;
+            }
+
             startCell.SetPositionState(LevelCellState.walkable);
             LevelCell[] tempNbs = RandomizeArray(startCell.Neighboards);
-
-            int n = 0;
-            Color[] colors = new Color[] { Color.green, Color.red, Color.blue, Color.black };
-
             foreach (LevelCell tempCell in tempNbs)
             {
                 if (tempCell.State == LevelCellState.walkable) continue;
                 tempCell.TrySetRootNode(startCell);
-                LevelCell lastCell = GeneratePath(tempCell);
-                DebugLevelPath(lastCell, colors[n]);
-                ++n;
+                return GeneratePath(tempCell);
             }
-
             return tempNbs.Last();
         }
 
-        // TODO: FIX
+        protected virtual bool IsEdgeCell(LevelCell startCell)
+        {
+            bool ver = startCell.Position.x <= 0 || startCell.Position.x >= levelWidth - 1;
+            bool hor = startCell.Position.y <= 0 || startCell.Position.y >= levelHeight - 1;
+            return ver || hor;
+        }
+
         protected virtual LevelCell[] RandomizeArray(LevelCell[] data)
         {
-            Random.InitState(Random.Range(0, data.Length));
+            UnityEngine.Random.InitState(DateTime.Now.Second);
             LevelCell[] result = new LevelCell[data.Length];
             data.CopyTo(result, 0);
-
-            int[] ids = new int[data.Length];
-            for (int i = 0; i < data.Length; ++i)
-                ids[i] = i;
-
-            for (int i = 0; i < data.Length; ++i)
-            {
-                int tmp = ids[i];
-                int id = Random.Range(0, data.Length);
-                ids[i] = ids[id];
-                ids[id] = tmp;
-            }
 
             int size = data.Length;
             for (int i = 0; i < size; ++i)
             {
+                int index = UnityEngine.Random.Range(0, data.Length);
                 LevelCell temp = result[i];
-                result[i] = result[ids[i]];
-                result[ids[i]] = temp;
+                result[i] = result[index];
+                result[index] = temp;
             }
 
             return result;
@@ -168,12 +170,12 @@ namespace Level
             Debug.Log(res);
         }
 
-        protected virtual void DebugLevelPath(LevelCell last, Color color)
+        protected virtual void DebugLevelPath(LevelCell last, ref string res)
         {
-            Debug.Log($"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{last.Position}</color>");
+            res += $"<- {last.Position}";
             if (last.RootNode != null)
             {
-                DebugLevelPath(last.RootNode, color);
+                DebugLevelPath(last.RootNode, ref res);
             }
         }
 
