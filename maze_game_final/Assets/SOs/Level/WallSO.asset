@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29ad890ebbb8d9d44876b00cc30a425a, type: 3}
-  m_Name: VerDefaultWallSO
+  m_Name: WallSO
   m_EditorClassIdentifier: 
-  wallPref: {fileID: 1727346921996950191, guid: 988f6b15f20eeca4aaa29009c5365fc1, type: 3}
-  posOffset: 0.75
+  wallPref: {fileID: 2683771531636155483, guid: 5e10e5f4ae6f11c4495f3e5d16f6d87c, type: 3}
+  posOffset: 0

@@ -1,12 +1,13 @@
 namespace Level
 {
+    using System.Collections.Generic;
     using UnityEngine;
 
     [RequireComponent(typeof(LevelController))]
     public class LevelView : MonoBehaviour
     {
-        [SerializeField] protected WallSO verWallPref = default;
-        [SerializeField] protected WallSO horWallPref = default;
+        [SerializeField] protected WallSO wallPrefHor = default;
+        [SerializeField] protected WallSO wallPrefVer = default;
 
         protected LevelController controller = default;
 
@@ -21,28 +22,23 @@ namespace Level
         protected virtual void OnDisable()
             => controller.OnLevelPathGenerated -= GenerateWalls;
 
-        protected virtual void GenerateWalls(LevelCell lastCell)
+        protected virtual void GenerateWalls(List<LevelCell> lastCell)
         {
-            GenerateWallsByCell(lastCell);
+            lastCell.ForEach(cell =>
+            {
+                if (cell.State == LevelCellState.unwalkable)
+                {
+                    GenerateWallByData(cell, cell.Type == LevelCellType.vertical ? wallPrefVer : wallPrefHor);
+                }
+            });
         }
 
-        protected virtual void GenerateWallsByCell(LevelCell currentCell)
+        protected virtual void GenerateWallByData(LevelCell currentCell, WallSO wallData)
         {
-            if (currentCell == null) return;
-
-            GenerateWallByData(currentCell, horWallPref, Vector2.down);
-            GenerateWallByData(currentCell, horWallPref, Vector2.up);
-            GenerateWallByData(currentCell, verWallPref, Vector2.right);
-            GenerateWallByData(currentCell, verWallPref, Vector2.left);
-
-            GenerateWallsByCell(currentCell.RootNode);
-        }
-
-        protected virtual void GenerateWallByData(LevelCell currentCell, WallSO wallData, Vector2 posOffset)
-        {
-            var tempWall = wallData.InstantiateWall(currentCell.Position * 4.0f + posOffset * wallData.PosOffset, Quaternion.identity);
-            tempWall.name = ((Vector2)tempWall.transform.position).ToString();
-            tempWall.transform.Translate((Vector2.left * controller.LevelWidth + Vector2.down * controller.LevelHeight) * 2.0f);
+            Vector2 horOffset = Vector2.right * currentCell.Position.y * wallData.PosOffset;
+            Vector2 verOffset = Vector2.down * currentCell.Position.y * 1.3f;
+            var tempWall = wallData.InstantiateWall(currentCell.Position * 2.0f + horOffset + verOffset);
+            tempWall.transform.Translate(Vector2.left * controller.LevelWidth * 1.3f + Vector2.down * controller.LevelHeight * 0.5f);
         }
     }
 }

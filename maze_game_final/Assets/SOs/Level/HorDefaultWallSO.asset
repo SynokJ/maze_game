@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HorDefaultWallSO
   m_EditorClassIdentifier: 
   wallPref: {fileID: 7247323206184484266, guid: 1813e9b0c11295b46bbf110501bf8f4b, type: 3}
-  posOffset: 1.5
+  posOffset: 0.75

@@ -9,7 +9,7 @@ namespace Level
     {
         protected const float SPAWN_STEP_POSITION = 4.0f;
 
-        public event Action<LevelCell> OnLevelPathGenerated = delegate { };
+        public event Action<List<LevelCell>> OnLevelPathGenerated = delegate { };
         public int LevelWidth => levelWidth;
         public int LevelHeight => levelHeight;
 
@@ -40,7 +40,29 @@ namespace Level
             InitDefaultLevelMap();
             InitSpawnWalkableArea();
             InitMapPath();
-            DebugLevelMap();
+            InitWalkState();
+
+            OnLevelPathGenerated(data);
+        }
+
+        private void InitWalkState()
+        {
+            data.ForEach(cell =>
+            {
+                tempCellNeighbords = cell.Neighboards;
+                bool isVertical = false;
+                foreach (var tempNbs in tempCellNeighbords)
+                {
+                    if (tempNbs.State == LevelCellState.unwalkable) continue;
+
+                    if (tempNbs.Position.y == cell.Position.y)
+                    {
+                        isVertical = tempNbs.Position.x != cell.Position.x;
+                    }
+                }
+
+                cell.SetType(isVertical ? LevelCellType.vertical : LevelCellType.horizontal);
+            });
         }
 
         protected virtual void InitDefaultLevelMap()
@@ -58,7 +80,7 @@ namespace Level
             {
                 tempCellNeighbords = new LevelCell[4];
                 InitNeighboard(Mathf.RoundToInt(x.Position.y), Mathf.RoundToInt(x.Position.x));
-                x.InitNeighboars(tempCellNeighbords);
+                x.SetNeighboars(tempCellNeighbords);
             });
         }
 
@@ -98,17 +120,9 @@ namespace Level
             tempCellNeighbords = new LevelCell[data[startSpawnPoint].Neighboards.Length];
             data[startSpawnPoint].Neighboards.CopyTo(tempCellNeighbords, 0);
 
-            int n = 0;
-            Color[] colors = new Color[] { Color.green, Color.red, Color.yellow, Color.black };
-
             foreach (LevelCell tempCell in tempCellNeighbords)
             {
-                LevelCell lastCell = GeneratePath(tempCell);
-                string res = default;
-                DebugLevelPath(lastCell, ref res);
-                OnLevelPathGenerated(lastCell);
-                Debug.Log($"<color=#{ColorUtility.ToHtmlStringRGB(colors[n])}>{res}</color>");
-                ++n;
+                GeneratePath(tempCell);
             }
         }
 
@@ -167,15 +181,6 @@ namespace Level
                 }
             });
             Debug.Log(res);
-        }
-
-        protected virtual void DebugLevelPath(LevelCell last, ref string res)
-        {
-            res += $"<- {last.Position}";
-            if (last.RootNode != null)
-            {
-                DebugLevelPath(last.RootNode, ref res);
-            }
         }
     }
 }

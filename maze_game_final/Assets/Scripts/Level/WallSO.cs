@@ -12,11 +12,11 @@ namespace Level
 
         protected Wall tempWall = default;
 
-        public Wall InstantiateWall(Vector2 spawnPos, Quaternion spawnRot)
+        public Wall InstantiateWall(Vector2 spawnPos)
         {
             tempWall = Instantiate(wallPref);
             tempWall.transform.position = spawnPos;
-            tempWall.transform.rotation = spawnRot;
+            tempWall.name = ((Vector2)tempWall.transform.position).ToString();
             return tempWall;
         }
     }
