@@ -2,13 +2,13 @@ namespace Level
 {
     using UnityEngine;
 
-    public class LevelCell
+    public class LevelCell 
     {
         protected const char WALKABLE_AREA_SIGN = '-';
         protected const char UNWALKABLE_AREA_SIGN = '*';
 
         public LevelCell RootNode => rootNode;
-        public LevelCell[] Neighboards => currentNeighboards;
+        public LevelCell[] Neighbors => currentNeighbors;
         public Vector2 Position => new Vector2(posX, posY);
         public LevelCellState State => state;
         public LevelCellType Type => type;
@@ -16,7 +16,7 @@ namespace Level
         protected int posX = 0;
         protected int posY = 0;
         protected LevelCell rootNode = null;
-        protected LevelCell[] currentNeighboards = null;
+        protected LevelCell[] currentNeighbors = null;
         protected LevelCellType type = default;
         protected LevelCellState state = default;
 
@@ -27,10 +27,10 @@ namespace Level
             state = LevelCellState.unwalkable;
         }
 
-        public virtual void SetNeighboars(LevelCell[] neighboards)
+        public virtual void SetNeighbors(LevelCell[] neighboards)
         {
-            currentNeighboards = new LevelCell[neighboards.Length];
-            neighboards.CopyTo(currentNeighboards, 0);
+            currentNeighbors = new LevelCell[neighboards.Length];
+            neighboards.CopyTo(currentNeighbors, 0);
         }
 
         public virtual void SetPositionState(LevelCellState state)
@@ -53,7 +53,8 @@ namespace Level
     public enum LevelCellState
     {
         unwalkable = 0,
-        walkable = 1
+        walkable = 1,
+        analyzing = 2
     }
 
     public enum LevelCellType

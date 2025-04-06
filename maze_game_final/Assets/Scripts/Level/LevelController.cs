@@ -18,6 +18,7 @@ namespace Level
 
         protected List<LevelCell> data = new List<LevelCell>();
         protected LevelCell[] tempCellNeighbords = null;
+        protected LevelCell[] tempNbs = null;
         protected GameObject tempWallPref = default;
         protected Vector2 tempSpawnOffset = default;
         protected Vector2 tempSpawnPos = default;
@@ -28,7 +29,7 @@ namespace Level
         protected int rowIterator = 0;
         protected int colIterator = 0;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             int halfOfHeight = Mathf.RoundToInt((levelHeight - 1) * 0.5f);
             int halfOfWidth = Mathf.RoundToInt((levelWidth - 1) * 0.5f);
@@ -36,20 +37,98 @@ namespace Level
         }
 
         protected virtual void Start()
+            => GenerateLevel();
+
+        protected virtual void GenerateLevel()
         {
             InitDefaultLevelMap();
-            InitSpawnWalkableArea();
             InitMapPath();
-            InitWalkState();
+            InitLevelBorder();
+            InitCellType();
 
             OnLevelPathGenerated(data);
         }
 
-        private void InitWalkState()
+        protected virtual void InitDefaultLevelMap()
         {
-            data.ForEach(cell =>
+            data.Clear();
+            for (int r = 0; r < levelHeight; ++r)
             {
-                tempCellNeighbords = cell.Neighboards;
+                for (int c = 0; c < levelWidth; ++c)
+                {
+                    tempCell = new LevelCell(c, r);
+                    tempCell.SetPositionState(LevelCellState.unwalkable);
+                    data.Add(tempCell);
+                }
+            }
+
+            data.ForEach(InitNeighborsToCell);
+        }
+
+        protected virtual void InitNeighborsToCell(LevelCell currentCell)
+        {
+            tempCellNeighbords = new LevelCell[4];
+            SetAvailableNeighbors(Mathf.RoundToInt(currentCell.Position.y), Mathf.RoundToInt(currentCell.Position.x));
+            currentCell.SetNeighbors(tempCellNeighbords);
+        }
+
+        protected virtual void SetAvailableNeighbors(int r, int c)
+        {
+            InitCellNeighbors(0, r - 1, c);
+            InitCellNeighbors(1, r, c + 1);
+            InitCellNeighbors(2, r + 1, c);
+            InitCellNeighbors(3, r, c - 1);
+
+            tempCellNeighbords = tempCellNeighbords.Where(x => x != null).ToArray();
+        }
+
+        protected virtual void InitCellNeighbors(int n, int r, int c)
+        {
+            if (TryGetNeighboar(out tempCell, r, c))
+                tempCellNeighbords[n] = tempCell;
+        }
+
+        protected virtual bool TryGetNeighboar(out LevelCell resultCell, int r, int c)
+        {
+            resultCell = null;
+            if (IsUnavailableCell(r, c)) return false;
+            resultCell = data[r * levelWidth + c];
+            return true;
+        }
+
+        protected virtual void InitMapPath()
+            => GeneratePath(data[startSpawnPoint]);
+
+        protected virtual LevelCell GeneratePath(LevelCell startCell)
+        {
+            if (IsEdgeCell(startCell))
+            {
+                return startCell;
+            }
+
+            startCell.SetPositionState(LevelCellState.walkable);
+            tempNbs = RandomizeArray(startCell.Neighbors);
+            foreach (LevelCell tempCell in tempNbs)
+            {
+                if (tempCell.State != LevelCellState.unwalkable) continue;
+                tempCell.TrySetRootNode(startCell);
+                tempNbs.ToList().ForEach(x =>
+                {
+                    if (tempCell.Position.x != x.Position.x && tempCell.Position.y != x.Position.y)
+                    {
+                        x.SetPositionState(LevelCellState.analyzing);
+                    }
+                });
+                GeneratePath(tempCell);
+            }
+            return tempNbs.Last();
+        }
+
+        protected virtual void InitCellType()
+        {
+            foreach (LevelCell cell in data)
+            {
+                tempCellNeighbords = cell.Neighbors;
                 bool isVertical = false;
                 foreach (var tempNbs in tempCellNeighbords)
                 {
@@ -62,87 +141,17 @@ namespace Level
                 }
 
                 cell.SetType(isVertical ? LevelCellType.vertical : LevelCellType.horizontal);
-            });
-        }
-
-        protected virtual void InitDefaultLevelMap()
-        {
-            data.Clear();
-            for (int r = 0; r < levelHeight; ++r)
-            {
-                for (int c = 0; c < levelWidth; ++c)
-                {
-                    data.Add(new LevelCell(c, r));
-                }
-            }
-
-            data.ForEach(x =>
-            {
-                tempCellNeighbords = new LevelCell[4];
-                InitNeighboard(Mathf.RoundToInt(x.Position.y), Mathf.RoundToInt(x.Position.x));
-                x.SetNeighboars(tempCellNeighbords);
-            });
-        }
-
-        protected virtual void InitNeighboard(int r, int c)
-        {
-            if (TryGetNeighboar(out tempCell, r - 1, c))
-                tempCellNeighbords[0] = tempCell;
-
-            if (TryGetNeighboar(out tempCell, r, c + 1))
-                tempCellNeighbords[1] = tempCell;
-
-            if (TryGetNeighboar(out tempCell, r + 1, c))
-                tempCellNeighbords[2] = tempCell;
-
-            if (TryGetNeighboar(out tempCell, r, c - 1))
-                tempCellNeighbords[3] = tempCell;
-
-            tempCellNeighbords = tempCellNeighbords.Where(x => x != null).ToArray();
-        }
-
-        protected virtual bool TryGetNeighboar(out LevelCell resultCell, int r, int c)
-        {
-            resultCell = null;
-            if (r < 0 || r > levelHeight - 1 || c < 0 || c > levelWidth - 1) return false;
-            resultCell = data[r * levelWidth + c];
-            return true;
-        }
-
-        protected virtual void InitSpawnWalkableArea()
-        {
-            data[startSpawnPoint].SetPositionState(LevelCellState.walkable);
-            data[startSpawnPoint].Neighboards.ToList().ForEach(x => { x.SetPositionState(LevelCellState.walkable); });
-        }
-
-        protected virtual void InitMapPath()
-        {
-            tempCellNeighbords = new LevelCell[data[startSpawnPoint].Neighboards.Length];
-            data[startSpawnPoint].Neighboards.CopyTo(tempCellNeighbords, 0);
-
-            foreach (LevelCell tempCell in tempCellNeighbords)
-            {
-                GeneratePath(tempCell);
             }
         }
 
-        protected virtual LevelCell GeneratePath(LevelCell startCell)
+        protected virtual void InitLevelBorder()
         {
-            if (IsEdgeCell(startCell))
-            {
-                return startCell;
-            }
-
-            startCell.SetPositionState(LevelCellState.walkable);
-            LevelCell[] tempNbs = RandomizeArray(startCell.Neighboards);
-            foreach (LevelCell tempCell in tempNbs)
-            {
-                if (tempCell.State == LevelCellState.walkable) continue;
-                tempCell.TrySetRootNode(startCell);
-                GeneratePath(tempCell);
-            }
-            return tempNbs.Last();
+            List<LevelCell> borderCells = data.Where(x => IsEdgeCell(x)).ToList();
+            borderCells.ForEach(cell => { cell.SetPositionState(LevelCellState.unwalkable); });
         }
+
+        protected virtual bool IsUnavailableCell(int r, int c)
+            => r < 0 || r > levelHeight - 1 || c < 0 || c > levelWidth - 1;
 
         protected virtual bool IsEdgeCell(LevelCell startCell)
         {
@@ -153,7 +162,6 @@ namespace Level
 
         protected virtual LevelCell[] RandomizeArray(LevelCell[] data)
         {
-            UnityEngine.Random.InitState(DateTime.Now.Second);
             LevelCell[] result = new LevelCell[data.Length];
             data.CopyTo(result, 0);
 
