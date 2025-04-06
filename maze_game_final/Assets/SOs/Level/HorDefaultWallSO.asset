@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ad890ebbb8d9d44876b00cc30a425a, type: 3}
+  m_Name: HorDefaultWallSO
+  m_EditorClassIdentifier: 
+  wallPref: {fileID: 7247323206184484266, guid: 1813e9b0c11295b46bbf110501bf8f4b, type: 3}
+  posOffset: 0.75
