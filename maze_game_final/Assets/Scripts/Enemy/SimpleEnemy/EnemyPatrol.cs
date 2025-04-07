@@ -2,7 +2,6 @@ namespace Enemy
 {
     using System;
     using System.Linq;
-    using Unity.VisualScripting;
     using UnityEngine;
 
     [RequireComponent(typeof(Enemy))]
@@ -14,6 +13,8 @@ namespace Enemy
             new Vector2(0.5f, 0.5f), new Vector2(-0.5f, 0.5f),
             new Vector2(-0.5f, -0.5f), new Vector2(0.5f, -0.5f)
         };
+
+        public event Action<bool> OnMovementDirectionChanged = delegate { };
 
         [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
         [SerializeField] protected Rigidbody2D playerRb = default;
@@ -56,6 +57,7 @@ namespace Enemy
                 currentpatrolDirection *= -1;
                 Debug.Log(e.ToString());
             }
+            OnMovementDirectionChanged(currentpatrolDirection.x >= 0);
         }
 
         protected virtual void CalculatedPatrolDirections()
