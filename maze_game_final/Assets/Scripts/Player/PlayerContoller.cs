@@ -1,6 +1,7 @@
 namespace Player
 {
     using System;
+    using Params;
     using Joystick;
     using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Player
         public event Action<Vector2> OnPlayerMoved = delegate { };
 
         [SerializeField] protected Rigidbody2D playerRb = default;
-        [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
+        [SerializeField] protected FloatContainer movementSpeed = default;
 
         protected Vector2 movementStep = default;
 
@@ -31,7 +32,7 @@ namespace Player
 
         protected virtual void MovePlayer(Vector2 movementDir)
         {
-            movementStep = movementDir * movementSpeed * Time.deltaTime;
+            movementStep = movementDir * movementSpeed.Value * Time.deltaTime;
             playerRb.MovePosition(playerRb.position + movementStep);
             OnPlayerMoved(movementDir);
         }
