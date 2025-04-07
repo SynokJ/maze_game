@@ -6,6 +6,7 @@ namespace Params
     [CreateAssetMenu(menuName = "Params/"+nameof(FloatContainer), fileName = nameof(FloatContainer))]
     public class FloatContainer : ScriptableObject
     {
+        public float DefaultValue => defaultValue;
         public float Value {
             get => currentValue;
             set {
