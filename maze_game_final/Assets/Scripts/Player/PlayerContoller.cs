@@ -38,6 +38,7 @@ namespace Player
 
         protected virtual void StopPlayer()
         {
+            playerRb.velocity = Vector2.zero;
             OnPlayerStopped();
         }
     }
