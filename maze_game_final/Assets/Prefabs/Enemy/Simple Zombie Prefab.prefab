@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 302918169247767117}
   - component: {fileID: 1405344976649306197}
   - component: {fileID: 7903423115912281248}
+  - component: {fileID: 834194876234795010}
   m_Layer: 0
   m_Name: Simple Zombie Prefab
   m_TagString: Untagged
@@ -113,6 +114,20 @@ MonoBehaviour:
   distanceToTrigger: 5
   movementSpeed: 3
   enemyRb: {fileID: 1405344976649306197}
+--- !u!114 &834194876234795010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893653287520241827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425775ae19ba830468c516095a4aba4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 3
+  playerRb: {fileID: 1405344976649306197}
 --- !u!1 &9103694263496882420
 GameObject:
   m_ObjectHideFlags: 0

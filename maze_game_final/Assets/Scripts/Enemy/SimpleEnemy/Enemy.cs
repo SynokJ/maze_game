@@ -1,10 +1,13 @@
 namespace Enemy
 {
     using Player;
+    using System;
     using UnityEngine;
 
     public class Enemy : AbstractPlayerProvider
     {
+        public event Action OnEnemyPatroling = delegate { };
+
         [SerializeField, Min(0.0f)] protected float distanceToTrigger = 0.0f;
         [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
         [SerializeField] protected Rigidbody2D enemyRb = default;
@@ -37,6 +40,9 @@ namespace Enemy
             {
                 movementDirection = (playerTr.position - transform.position).normalized;
                 enemyRb.MovePosition((Vector2)transform.position + movementDirection * movementSpeed * Time.deltaTime);
+            } else
+            {
+                OnEnemyPatroling();
             }
         }
 
