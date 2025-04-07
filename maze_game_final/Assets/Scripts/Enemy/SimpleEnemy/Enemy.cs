@@ -40,15 +40,14 @@ namespace Enemy
         protected virtual void Update()
         {
             if (!canMove)
-            {
                 return;
-            }
 
             if (IsEnemyOnTrigger())
             {
                 movementDirection = (playerTr.position - transform.position).normalized;
                 enemyRb.MovePosition((Vector2)transform.position + movementDirection * movementSpeed * Time.deltaTime);
-            } else
+            }
+            else
             {
                 OnEnemyPatroling();
             }

@@ -1,6 +1,5 @@
 namespace Enemy
 {
-    using System;
     using System.Linq;
     using UnityEngine;
 
@@ -23,36 +22,25 @@ namespace Enemy
         protected virtual void Awake()
         {
             enemyController = GetComponent<Enemy>();
-        }
-
-        protected virtual void OnEnable()
-        {
-            enemyController.OnEnemyPatroling += MoveEnemyByPatrolDirection;
-        }
-
-        protected virtual void OnDisable()
-        {
-            enemyController.OnEnemyPatroling -= MoveEnemyByPatrolDirection;
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
             UpdatePatrolDirection();
         }
 
+        protected virtual void OnEnable()
+            => enemyController.OnEnemyPatroling += MoveEnemyByPatrolDirection;
+
+        protected virtual void OnDisable()
+            => enemyController.OnEnemyPatroling -= MoveEnemyByPatrolDirection;
+
+        private void OnCollisionEnter2D(Collision2D collision)
+            => UpdatePatrolDirection();
+
         protected virtual void MoveEnemyByPatrolDirection()
-        {
-            playerRb.MovePosition((Vector2)transform.position + currentpatrolDirection * movementSpeed * Time.deltaTime);
-        }
+            => playerRb.MovePosition((Vector2)transform.position + currentpatrolDirection * movementSpeed * Time.deltaTime);
 
         protected virtual void UpdatePatrolDirection()
         {
             tempAvailableDirection = patrolDirection.Where(x => x != currentpatrolDirection).ToArray();
             CalculatedPatrolDirections();
-            
-            string res = default;
-            tempAvailableDirection.ToList().ForEach(x => { res += x + " -> "; });
-            Debug.Log(res);
 
             patrolDirectionID = UnityEngine.Random.Range(0, tempAvailableDirection.Length);
             currentpatrolDirection = tempAvailableDirection[patrolDirectionID];
@@ -64,24 +52,16 @@ namespace Enemy
             tempAvailableDirection.CopyTo(result, 0);
 
             for (int i = 0; i < result.Length; ++i)
-            {
                 result[i] = IsAvailableDireciton(result[i]) ? result[i] : Vector2.zero;
-            }
             tempAvailableDirection = result.Where(dir => dir != Vector2.zero).ToArray();
         }
 
         protected virtual bool IsAvailableDireciton(Vector2 dir)
         {
             hits = Physics2D.RaycastAll(transform.position, dir, 3.0f);
-
             foreach(RaycastHit2D hit in hits)
-            {
                 if (!hit.transform.name.Equals(gameObject.name))
-                {
                     return false;
-                }
-            }
-
             return true;
         }
     }
