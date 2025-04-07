@@ -12,10 +12,10 @@ namespace Enemy
         [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
         [SerializeField] protected Rigidbody2D enemyRb = default;
 
+        protected bool canMove = false;
         protected Transform playerTr = default;
         protected float distanceToPlayer = 0.0f;
         protected Vector2 movementDirection = default;
-        protected bool canMove = false;
 
         protected virtual void Start()
         {
@@ -33,9 +33,7 @@ namespace Enemy
         }
 
         protected override void DestroyPlayer()
-        {
-            canMove = false;
-        }
+            => canMove = false;
 
         protected virtual void Update()
         {

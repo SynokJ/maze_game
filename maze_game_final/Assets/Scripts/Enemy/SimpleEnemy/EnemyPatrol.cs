@@ -6,8 +6,11 @@ namespace Enemy
     [RequireComponent(typeof(Enemy))]
     public class EnemyPatrol : MonoBehaviour
     {
+        protected const float DISTANCE_TO_MOVE = 2.0f;
         protected readonly Vector2[] patrolDirection = new Vector2[]{
-            Vector2.up, Vector2.down, Vector2.left, Vector2.right, new Vector2(0.5f, 0.5f), new Vector2(-0.5f, 0.5f), new Vector2(-0.5f, -0.5f), new Vector2(0.5f, -0.5f),
+            Vector2.up, Vector2.down, Vector2.left, Vector2.right, 
+            new Vector2(0.5f, 0.5f), new Vector2(-0.5f, 0.5f), 
+            new Vector2(-0.5f, -0.5f), new Vector2(0.5f, -0.5f)
         };
 
         [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
@@ -42,7 +45,7 @@ namespace Enemy
             tempAvailableDirection = patrolDirection.Where(x => x != currentpatrolDirection).ToArray();
             CalculatedPatrolDirections();
 
-            patrolDirectionID = UnityEngine.Random.Range(0, tempAvailableDirection.Length);
+            patrolDirectionID = Random.Range(0, tempAvailableDirection.Length);
             currentpatrolDirection = tempAvailableDirection[patrolDirectionID];
         }
 
@@ -58,7 +61,7 @@ namespace Enemy
 
         protected virtual bool IsAvailableDireciton(Vector2 dir)
         {
-            hits = Physics2D.RaycastAll(transform.position, dir, 3.0f);
+            hits = Physics2D.RaycastAll(transform.position, dir, DISTANCE_TO_MOVE);
             foreach(RaycastHit2D hit in hits)
                 if (!hit.transform.name.Equals(gameObject.name))
                     return false;
