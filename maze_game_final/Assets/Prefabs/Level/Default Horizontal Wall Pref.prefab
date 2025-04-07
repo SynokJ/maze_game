@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7277997194146224901}
-  - component: {fileID: 1725772500180930267}
   - component: {fileID: 7247323206184484266}
   - component: {fileID: 6019076598877575226}
+  - component: {fileID: 8214971652498771218}
   m_Layer: 0
   m_Name: Default Horizontal Wall Pref
   m_TagString: Untagged
@@ -119,8 +119,34 @@ Transform:
   - {fileID: 3832410007199506372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1725772500180930267
-BoxCollider2D:
+--- !u!114 &7247323206184484266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734537246199211243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4ebb96c20093742be88cd370b1e7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6019076598877575226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734537246199211243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f57650fc57753b45bfe93bba2ef807a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallCollider: {fileID: 8214971652498771218}
+  wallRenderer: {fileID: 231289458221499739}
+--- !u!68 &8214971652498771218
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,41 +178,19 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &7247323206184484266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734537246199211243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4ebb96c20093742be88cd370b1e7aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6019076598877575226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734537246199211243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f57650fc57753b45bfe93bba2ef807a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallCollider: {fileID: 1725772500180930267}
-  wallRenderer: {fileID: 231289458221499739}
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.9836422, y: -0.008662455}
+  - {x: 0.46278238, y: -0.38114515}
+  - {x: -1.4320056, y: -0.36870927}
+  - {x: -1.4289904, y: -0.2484783}
+  - {x: -0.40716052, y: 0.41995007}
+  - {x: 1.4324248, y: 0.4247817}
+  - {x: 1.4338241, y: 0.2783302}
+  - {x: 0.9910787, y: -0.003495058}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 1
+  m_UseAdjacentEndPoint: 1
