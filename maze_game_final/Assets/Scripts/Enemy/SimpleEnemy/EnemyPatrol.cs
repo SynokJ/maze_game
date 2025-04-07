@@ -1,6 +1,8 @@
 namespace Enemy
 {
+    using System;
     using System.Linq;
+    using Unity.VisualScripting;
     using UnityEngine;
 
     [RequireComponent(typeof(Enemy))]
@@ -8,8 +10,8 @@ namespace Enemy
     {
         protected const float DISTANCE_TO_MOVE = 2.0f;
         protected readonly Vector2[] patrolDirection = new Vector2[]{
-            Vector2.up, Vector2.down, Vector2.left, Vector2.right, 
-            new Vector2(0.5f, 0.5f), new Vector2(-0.5f, 0.5f), 
+            Vector2.up, Vector2.down, Vector2.left, Vector2.right,
+            new Vector2(0.5f, 0.5f), new Vector2(-0.5f, 0.5f),
             new Vector2(-0.5f, -0.5f), new Vector2(0.5f, -0.5f)
         };
 
@@ -45,8 +47,15 @@ namespace Enemy
             tempAvailableDirection = patrolDirection.Where(x => x != currentpatrolDirection).ToArray();
             CalculatedPatrolDirections();
 
-            patrolDirectionID = Random.Range(0, tempAvailableDirection.Length);
-            currentpatrolDirection = tempAvailableDirection[patrolDirectionID];
+            try 
+            {
+                patrolDirectionID = UnityEngine.Random.Range(0, tempAvailableDirection.Length);
+                currentpatrolDirection = tempAvailableDirection[patrolDirectionID];
+            } catch(Exception e)
+            {
+                currentpatrolDirection *= -1;
+                Debug.Log(e.ToString());
+            }
         }
 
         protected virtual void CalculatedPatrolDirections()
@@ -62,7 +71,7 @@ namespace Enemy
         protected virtual bool IsAvailableDireciton(Vector2 dir)
         {
             hits = Physics2D.RaycastAll(transform.position, dir, DISTANCE_TO_MOVE);
-            foreach(RaycastHit2D hit in hits)
+            foreach (RaycastHit2D hit in hits)
                 if (!hit.transform.name.Equals(gameObject.name))
                     return false;
             return true;
