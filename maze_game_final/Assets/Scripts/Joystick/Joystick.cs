@@ -20,7 +20,7 @@ namespace Joystick
         protected Vector2 movementDirection = default;
         protected Vector2 originPosition = default;
 
-        protected override void InitPlayer()
+        protected override  void InitPlayer()
         {
             base.InitPlayer();
             controller.SubscribeJoystick(this);

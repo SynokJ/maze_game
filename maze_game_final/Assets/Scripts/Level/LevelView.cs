@@ -1,11 +1,14 @@
 namespace Level
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
 
     [RequireComponent(typeof(LevelController))]
     public class LevelView : MonoBehaviour
     {
+        public event Action<List<LevelCell>> OnWallsGenerated = delegate { };
+
         [SerializeField] protected WallSO wallPrefHor = default;
         [SerializeField] protected WallSO wallPrefVer = default;
 
@@ -28,6 +31,7 @@ namespace Level
         {
             ClearGeneratedWalls();
             lastCell.ForEach(GenerateUnwalkableCells);
+            OnWallsGenerated(lastCell);
         }
 
         protected virtual void ClearGeneratedWalls()
