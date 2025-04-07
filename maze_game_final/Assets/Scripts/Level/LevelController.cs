@@ -12,6 +12,7 @@ namespace Level
         public event Action<List<LevelCell>> OnLevelPathGenerated = delegate { };
         public int LevelWidth => levelWidth;
         public int LevelHeight => levelHeight;
+        public List<LevelCell> LevelCells => data;
 
         [SerializeField, Min(3)] protected int levelWidth = 3;
         [SerializeField, Min(3)] protected int levelHeight = 3;

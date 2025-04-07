@@ -17,6 +17,14 @@ namespace Enemy
         protected Vector2 movementDirection = default;
         protected bool canMove = false;
 
+        protected virtual void Start()
+        {
+            if (playerContainer.isPlayerInited)
+            {
+                InitPlayer();
+            }
+        }
+
         protected override void InitPlayer()
         {
             base.InitPlayer();
@@ -36,7 +44,7 @@ namespace Enemy
                 return;
             }
 
-            if(IsEnemyOnTrigger())
+            if (IsEnemyOnTrigger())
             {
                 movementDirection = (playerTr.position - transform.position).normalized;
                 enemyRb.MovePosition((Vector2)transform.position + movementDirection * movementSpeed * Time.deltaTime);

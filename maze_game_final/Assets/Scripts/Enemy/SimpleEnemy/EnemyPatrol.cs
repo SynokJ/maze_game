@@ -23,7 +23,6 @@ namespace Enemy
         protected virtual void Awake()
         {
             enemyController = GetComponent<Enemy>();
-            UpdatePatrolDirection();
         }
 
         protected virtual void OnEnable()
@@ -50,6 +49,11 @@ namespace Enemy
         {
             tempAvailableDirection = patrolDirection.Where(x => x != currentpatrolDirection).ToArray();
             CalculatedPatrolDirections();
+            
+            string res = default;
+            tempAvailableDirection.ToList().ForEach(x => { res += x + " -> "; });
+            Debug.Log(res);
+
             patrolDirectionID = UnityEngine.Random.Range(0, tempAvailableDirection.Length);
             currentpatrolDirection = tempAvailableDirection[patrolDirectionID];
         }
