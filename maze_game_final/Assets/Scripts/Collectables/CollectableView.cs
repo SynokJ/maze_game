@@ -5,8 +5,10 @@ namespace Collectable
     [RequireComponent(typeof(AbstractCollectable))]
     public class CollectableView : MonoBehaviour
     {
-        [SerializeField] protected Collider2D collider = default;
-        [SerializeField] protected SpriteRenderer renderer = default;
+        public SpriteRenderer spriteRenderer => collectableRenderer;
+
+        [SerializeField] protected Collider2D collectableCollider = default;
+        [SerializeField] protected SpriteRenderer collectableRenderer = default;
 
         protected AbstractCollectable collectable = default;
 
@@ -22,8 +24,8 @@ namespace Collectable
 
         protected virtual void HideCollectable()
         {
-            collider.enabled = false;
-            renderer.enabled = false;
+            collectableCollider.enabled = false;
+            collectableRenderer.enabled = false;
         }
     }
 }
