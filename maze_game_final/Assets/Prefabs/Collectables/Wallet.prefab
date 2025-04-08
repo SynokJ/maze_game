@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b6a697e316b7e418285e533edc975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1429774511870896169}
-  renderer: {fileID: 6756929326272147131}
+  collectableCollider: {fileID: 1429774511870896169}
+  collectableRenderer: {fileID: 6756929326272147131}
 --- !u!1 &3144687645113625627
 GameObject:
   m_ObjectHideFlags: 0
