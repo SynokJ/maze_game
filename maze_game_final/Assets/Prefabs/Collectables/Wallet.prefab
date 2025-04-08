@@ -68,7 +68,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.75, y: 0.2}
+  m_Size: {x: 0.75, y: 0.25}
   m_Direction: 1
 --- !u!114 &40888076467194939
 MonoBehaviour:
@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c501aeaf5da9c2418a3d756571151bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectablesContainer: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
   delay: 1
   val: 10
   coinsAmount: {fileID: 11400000, guid: e4d3c0454e7e1384d96d74a99ee1a081, type: 2}
