@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91778c4cd976f347bb44f5a32e51952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
   speed: 10
+  delay: 3
   playerSpeed: {fileID: 11400000, guid: 8d817ce0900df834a89c82316037e9e7, type: 2}
 --- !u!114 &1379524086889285923
 MonoBehaviour:
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b6a697e316b7e418285e533edc975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableCollider: {fileID: 6442786279737089929}
-  collectableRenderer: {fileID: 3205803045331525388}
+  collider: {fileID: 6442786279737089929}
+  renderer: {fileID: 3205803045331525388}
 --- !u!1 &8575276169098972823
 GameObject:
   m_ObjectHideFlags: 0
