@@ -9,6 +9,7 @@ namespace Collectable
     {
         public event Action OnCollectablePicked = delegate { };
 
+        [SerializeField] protected CollectablesDataSO collectablesContainer = default;
         [SerializeField, Min(1.0f)] protected float delay = 1.0f;
 
         protected PlayerInteraction playerInteraction = default;
@@ -24,6 +25,7 @@ namespace Collectable
         protected virtual void ActivateCollectable()
         {
             OnCollectablePicked();
+            collectablesContainer.RemoveCollectable(this);
             StartCoroutine(ActivateByLifeTime());
         }
 

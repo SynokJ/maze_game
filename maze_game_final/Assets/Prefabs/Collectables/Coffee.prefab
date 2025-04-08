@@ -68,7 +68,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.75, y: 0.2}
+  m_Size: {x: 0.5, y: 0.25}
   m_Direction: 1
 --- !u!114 &7751057866263372958
 MonoBehaviour:
@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91778c4cd976f347bb44f5a32e51952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectablesContainer: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
   delay: 3
   speed: 10
   playerSpeed: {fileID: 11400000, guid: 8d817ce0900df834a89c82316037e9e7, type: 2}

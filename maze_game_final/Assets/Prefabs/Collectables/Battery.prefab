@@ -152,7 +152,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.75, y: 0.2}
+  m_Size: {x: 0.75, y: 0.25}
   m_Direction: 1
 --- !u!114 &4101193211614307083
 MonoBehaviour:
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132df58d39468cf4c95db0a794dc97cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 6
+  collectablesContainer: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
+  delay: 10
   lightValue: 10
   lightOuterRadius: {fileID: 11400000, guid: ca4f5318e98eee2438854cdce9650acf, type: 2}
 --- !u!114 &1370601954690567132
