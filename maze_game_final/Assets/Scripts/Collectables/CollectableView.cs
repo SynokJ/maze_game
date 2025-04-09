@@ -1,12 +1,14 @@
 namespace Collectable
 {
     using UnityEngine;
+    using UnityEngine.Rendering.Universal;
 
     [RequireComponent(typeof(AbstractCollectable))]
     public class CollectableView : MonoBehaviour
     {
         public SpriteRenderer spriteRenderer => collectableRenderer;
 
+        [SerializeField] protected Light2D collectableLight = default;
         [SerializeField] protected Collider2D collectableCollider = default;
         [SerializeField] protected SpriteRenderer collectableRenderer = default;
 
@@ -24,6 +26,7 @@ namespace Collectable
 
         protected virtual void HideCollectable()
         {
+            collectableLight.enabled = false;
             collectableCollider.enabled = false;
             collectableRenderer.enabled = false;
         }
