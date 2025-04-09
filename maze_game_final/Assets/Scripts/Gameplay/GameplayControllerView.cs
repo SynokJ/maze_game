@@ -12,23 +12,15 @@ namespace Gameplay
         protected GameplayController controller = default;
 
         protected virtual void Awake()
-        {
-            controller = GetComponent<GameplayController>();
-        }
+            => controller = GetComponent<GameplayController>();
 
         protected virtual void OnEnable()
-        {
-            controller.OnTimerChanged += UpdateTimerView;
-        }
+            => controller.OnTimerChanged += UpdateTimerView;
 
         protected virtual void OnDisable()
-        {
-            controller.OnTimerChanged -= UpdateTimerView;
-        }
+            => controller.OnTimerChanged -= UpdateTimerView;
 
         protected virtual void UpdateTimerView(TimeSpan timer)
-        {
-            timerText.text = timer.ToString();
-        }
+            => timerText.text = timer.TotalSeconds.ToString();
     }
 }
