@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3054062185789716379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &3734537246199211243
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,9 +179,9 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
   m_Points:
-  - {x: -0.5, y: 0}
+  - {x: 1, y: 0}
   - {x: 0.9836422, y: -0.008662455}
   - {x: 0.46278238, y: -0.38114515}
   - {x: -1.4320056, y: -0.36870927}
@@ -190,11 +190,11 @@ EdgeCollider2D:
   - {x: 1.4324248, y: 0.4247817}
   - {x: 1.4338241, y: 0.2783302}
   - {x: 0.9910787, y: -0.003495058}
-  - {x: 0.5, y: 0}
+  - {x: 1, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 1
-  m_UseAdjacentEndPoint: 1
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!114 &35174650077137417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   - {x: 0.45759067, y: -0.377176, z: 0}
   m_ShapePathHash: -1067056883
   m_Mesh: {fileID: 0}
-  m_InstanceId: -199446
+  m_InstanceId: 32098
   m_LocalBounds:
     m_Center: {x: 0.00090920925, y: 0.024115652, z: 0}
     m_Extent: {x: 1.4329149, y: 0.4052608, z: 0}

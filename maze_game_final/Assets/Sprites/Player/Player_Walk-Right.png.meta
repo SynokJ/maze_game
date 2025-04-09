@@ -136,106 +136,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Maze_0
+      name: Player_Walk-Right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 25
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc309a7d78ae6334cae3d8504da86d8d
-      internalID: 1016043500
+      spriteID: 3bb3cb0920b6a60429aeeffc55400490
+      internalID: 273268594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maze_1
+      name: Player_Walk-Right_1
       rect:
         serializedVersion: 2
         x: 27
         y: 0
         width: 24
         height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac59ac12bf32e784d9aabcc69b401c8d
-      internalID: -519586911
+      spriteID: ac297caa8291cbe4fa49521e88156c01
+      internalID: 1087800929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maze_2
+      name: Player_Walk-Right_2
       rect:
         serializedVersion: 2
         x: 55
         y: 0
         width: 24
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575562611326ae247a5405b7d53e4b96
-      internalID: 1425970022
+      spriteID: d3eb1e7c0708713489ee1fccf3491109
+      internalID: 1564442838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maze_3
+      name: Player_Walk-Right_3
       rect:
         serializedVersion: 2
         x: 82
         y: 0
         width: 24
         height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaed112faabc51e499581339467b0517
-      internalID: -941654055
+      spriteID: d7c664d8315586841807b852711f81ad
+      internalID: -530245008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maze_4
+      name: Player_Walk-Right_4
       rect:
         serializedVersion: 2
         x: 109
         y: 0
         width: 25
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e72ee4c9aed58643a8cb64e999537ea
-      internalID: 1802785927
+      spriteID: e259066a339a28344ba883f5491e0566
+      internalID: 882554373
       vertices: []
       indices: 
       edges: []
@@ -251,11 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Maze_0: 1016043500
-      Maze_1: -519586911
-      Maze_2: 1425970022
-      Maze_3: -941654055
-      Maze_4: 1802785927
+      Player_Walk-Right_0: 273268594
+      Player_Walk-Right_1: 1087800929
+      Player_Walk-Right_2: 1564442838
+      Player_Walk-Right_3: -530245008
+      Player_Walk-Right_4: 882554373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
