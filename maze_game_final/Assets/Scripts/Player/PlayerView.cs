@@ -2,7 +2,7 @@ namespace Player
 {
     using UnityEngine;
 
-    [RequireComponent(typeof(PlayerContoller))]
+    [RequireComponent(typeof(PlayerMovement))]
     public class PlayerView : MonoBehaviour
     {
         protected const string WALK_ANIMATION_NAME = "is_walk";
@@ -12,10 +12,10 @@ namespace Player
         [SerializeField] protected Animator animator = default;
         [SerializeField] protected Transform playerTr = default;
 
-        protected PlayerContoller controller = default;
+        protected PlayerMovement controller = default;
 
         protected virtual void Awake()
-            => controller = GetComponent<PlayerContoller>();
+            => controller = GetComponent<PlayerMovement>();
 
         protected virtual void OnEnable()
         {

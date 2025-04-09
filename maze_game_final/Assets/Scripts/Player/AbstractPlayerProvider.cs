@@ -6,7 +6,7 @@ namespace Player
     {
         [SerializeField] protected PlayerContainer playerContainer = default;
 
-        protected PlayerContoller controller = default;
+        protected PlayerMovement controller = default;
 
         protected virtual void OnEnable()
         {
