@@ -342,3 +342,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1a6db527c9312499eee482ed0727a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Lose

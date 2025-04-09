@@ -8,6 +8,7 @@ namespace Collectable
     public class CollectablesDataSO : ScriptableObject
     {
         public event Action OnCollectablesChanged = delegate { };
+        public event Action OnCollectablesCollected = delegate { };
         public List<AbstractCollectable> AvailableCollectable => availableCollectables;
 
         protected List<AbstractCollectable> availableCollectables = new List<AbstractCollectable>();
@@ -27,6 +28,11 @@ namespace Collectable
         {
             availableCollectables.Remove(collectable);
             OnCollectablesChanged();
+
+            if(availableCollectables.Count <= 0)
+            {
+                OnCollectablesCollected();
+            }
         }
     }
 }
