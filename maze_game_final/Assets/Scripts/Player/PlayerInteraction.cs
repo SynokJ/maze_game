@@ -17,9 +17,7 @@ namespace Player
             if (collision.gameObject.TryGetComponent(out tempEnemy))
             {
                 SceneManager.LoadScene(sceneName);
-            }
-
-            if(collision.gameObject.TryGetComponent(out tempBoss))
+            } else if(collision.gameObject.TryGetComponent(out tempBoss))
             {
                 SceneManager.LoadScene(sceneName);
             }
