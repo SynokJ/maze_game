@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMovementSpeed
   m_EditorClassIdentifier: 
   currentValue: 5
-  defaultValue: 5
+  defaultValue: 10
