@@ -42,6 +42,8 @@ namespace Boss
             if(currentTimerValue >= TimeSpan.Zero)
             {
                 Debug.Log(currentTimerValue.ToString());
+
+                PrepareAttack();
                 StartCoroutine(UpdateStageTimer());
             } else if(canAttack)
             {

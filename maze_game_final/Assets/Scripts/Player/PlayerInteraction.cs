@@ -1,5 +1,6 @@
 namespace Player
 {
+    using Boss;
     using Enemy;
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -9,10 +10,16 @@ namespace Player
         [SerializeField] protected string sceneName = default;
 
         protected Enemy tempEnemy = default;
+        protected AbstractBoss tempBoss = default;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.TryGetComponent(out tempEnemy))
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+
+            if(collision.gameObject.TryGetComponent(out tempBoss))
             {
                 SceneManager.LoadScene(sceneName);
             }

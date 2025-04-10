@@ -5,6 +5,8 @@ namespace Boss
 
     public class MovingBoss : AbstractBoss
     {
+        [SerializeField, Range(0.0f, 1.0f)] protected float chanceToHit = 0.0f;
+
         protected Vector3 tempTargetPos = default;
 
         protected override void InitPlayer()
@@ -25,6 +27,10 @@ namespace Boss
 
         protected override void PrepareAttack()
         {
+            if (Random.value < chanceToHit)
+            {
+                tempTargetPos = playerTr.position;
+            }
         }
 
         protected IEnumerator ChargeMoveToDestination()
