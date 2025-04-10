@@ -32,7 +32,7 @@ namespace Player
 
         protected virtual void MovePlayer(Vector2 movementDir)
         {
-            movementStep = movementDir * movementSpeed.Value * Time.deltaTime;
+            movementStep = movementDir * movementSpeed.Value * Time.time;
             playerRb.MovePosition(playerRb.position + movementStep);
             OnPlayerMoved(movementDir);
         }
