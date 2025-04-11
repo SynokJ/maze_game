@@ -19,7 +19,7 @@ namespace Boss
         protected virtual void Awake()
         {
             currentTimerValue = TimeSpan.FromSeconds(secondsToAttack);
-            timeToSubstract  = TimeSpan.FromSeconds(TIMER_STEP_VALUE);
+            timeToSubstract = TimeSpan.FromSeconds(TIMER_STEP_VALUE);
         }
 
         protected override void InitPlayer()
@@ -30,7 +30,7 @@ namespace Boss
             StartCoroutine(UpdateStageTimer());
         }
 
-        protected abstract void PrepareAttack();
+        protected abstract void PrepareAttack(float preparePercent);
 
         protected abstract void Attack();
 
@@ -39,13 +39,14 @@ namespace Boss
             yield return new WaitForSeconds(TIMER_STEP_VALUE);
             currentTimerValue = currentTimerValue.Subtract(timeToSubstract);
 
-            if(currentTimerValue >= TimeSpan.Zero)
+            if (currentTimerValue >= TimeSpan.Zero)
             {
                 Debug.Log(currentTimerValue.ToString());
 
-                PrepareAttack();
+                PrepareAttack((secondsToAttack - (float)currentTimerValue.TotalSeconds) / secondsToAttack);
                 StartCoroutine(UpdateStageTimer());
-            } else if(canAttack)
+            }
+            else if (canAttack)
             {
                 Attack();
             }

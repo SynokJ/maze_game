@@ -16,7 +16,7 @@ namespace Enemy
 
         public event Action<bool> OnMovementDirectionChanged = delegate { };
 
-        [SerializeField, Min(1.0f)] protected float movementSpeed = 1.0f;
+        [SerializeField, Min(0.0f)] protected float movementSpeed = 0.0f;
         [SerializeField] protected Rigidbody2D playerRb = default;
 
         protected int patrolDirectionID = 0;
@@ -41,7 +41,7 @@ namespace Enemy
             => UpdatePatrolDirection();
 
         protected virtual void MoveEnemyByPatrolDirection()
-            => playerRb.MovePosition((Vector2)transform.position + currentpatrolDirection * movementSpeed * Time.deltaTime);
+            => playerRb.MovePosition((Vector2)transform.position + currentpatrolDirection * movementSpeed);
 
         protected virtual void UpdatePatrolDirection()
         {
@@ -55,7 +55,6 @@ namespace Enemy
             } catch(Exception e)
             {
                 currentpatrolDirection *= -1;
-                Debug.Log(e.ToString());
             }
             OnMovementDirectionChanged(currentpatrolDirection.x >= 0);
         }

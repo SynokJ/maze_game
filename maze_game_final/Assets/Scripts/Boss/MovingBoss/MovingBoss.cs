@@ -1,10 +1,11 @@
 namespace Boss
 {
-    using System.Collections;
     using UnityEngine;
+    using System.Collections;
 
     public class MovingBoss : AbstractBoss
     {
+        [SerializeField] protected ParticleSystem slideEffect = default;
         [SerializeField, Range(0.0f, 1.0f)] protected float chanceToHit = 0.0f;
 
         protected Vector3 tempTargetPos = default;
@@ -22,31 +23,27 @@ namespace Boss
 
         protected override void Attack()
         {
+            tempTargetPos = playerTr.position;
             StartCoroutine(ChargeMoveToDestination());
         }
 
-        protected override void PrepareAttack()
+        protected override void PrepareAttack(float preparePercent)
         {
-            if (Random.value < chanceToHit)
+            if(preparePercent > 0.5f)
             {
-                tempTargetPos = playerTr.position;
+                slideEffect.Play();
             }
         }
 
         protected IEnumerator ChargeMoveToDestination()
         {
             for (float i = 0; i <= 1.0f; i += 0.01f)
-            {
+            { 
                 transform.position = Vector3.Lerp(transform.position, tempTargetPos, i);
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.01f);
             }
+            slideEffect.Stop();
             RestartAttack();
-        }
-
-        protected override void RestartAttack()
-        {
-            base.RestartAttack();
-            tempTargetPos = playerTr.position;
         }
     }
 }
