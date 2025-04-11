@@ -37,10 +37,10 @@ namespace Boss
 
         protected IEnumerator ChargeMoveToDestination()
         {
-            for (float i = 0; i <= 1.0f; i += 0.01f)
+            for (float i = 0; i <= 1.0f; i += 0.0025f)
             { 
                 transform.position = Vector3.Lerp(transform.position, tempTargetPos, i);
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.005f);
             }
             slideEffect.Stop();
             RestartAttack();
