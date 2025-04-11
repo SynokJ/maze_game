@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 11400000, guid: b1bd1f78ead3364419738fa977cb8c28, type: 2}
   distanceToTrigger: 5
-  movementSpeed: 0.1
+  movementSpeed: 0.08
   enemyRb: {fileID: 1405344976649306197}
 --- !u!114 &834194876234795010
 MonoBehaviour:
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425775ae19ba830468c516095a4aba4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.1
+  movementSpeed: 0.05
   playerRb: {fileID: 1405344976649306197}
 --- !u!114 &-287417670447541600
 MonoBehaviour:
