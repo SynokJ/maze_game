@@ -6,6 +6,7 @@ namespace Boss.ShootinBoss
     public class ShootingBossBulletView : MonoBehaviour
     {
         [SerializeField] protected SpriteRenderer currentRenderer = default;
+        [SerializeField] protected SpriteRenderer currentShadowRenderer = default;
         [SerializeField] protected Collider2D currentCollider = default;
 
         protected ShootingBossBullet bulletController = default;
@@ -37,6 +38,7 @@ namespace Boss.ShootinBoss
         {
             currentRenderer.enabled = status;
             currentCollider.enabled = status;
+            currentShadowRenderer.enabled = status;
         }
     }
 }

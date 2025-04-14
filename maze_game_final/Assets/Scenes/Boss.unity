@@ -5228,8 +5228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 11400000, guid: b1bd1f78ead3364419738fa977cb8c28, type: 2}
-  secondsToAttack: 3
-  bulletAmount: 3
+  secondsToAttack: 1
+  bulletAmount: 5
   bulletSpawnPoint: {fileID: 1915032403}
   bulletPref: {fileID: 6981120931091283652, guid: af1cac34768bd1444bdf83490b1a7163, type: 3}
 --- !u!1 &1915032402

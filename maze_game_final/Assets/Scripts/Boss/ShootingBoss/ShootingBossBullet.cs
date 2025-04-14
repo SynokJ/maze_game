@@ -1,6 +1,5 @@
 namespace Boss.ShootinBoss
 {
-    using Player;
     using System;
     using UnityEngine;
     using UnityEngine.Pool;
@@ -25,7 +24,7 @@ namespace Boss.ShootinBoss
             }
         }
 
-        public virtual void InitBullet(ObjectPool<ShootingBossBullet> data)
+        public virtual void InitBullet(IObjectPool<ShootingBossBullet> data)
         {
             OnBulletInactivated();
             pool = data;

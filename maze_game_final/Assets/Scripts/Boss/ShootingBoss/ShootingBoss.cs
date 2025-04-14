@@ -5,26 +5,55 @@ namespace Boss.ShootinBoss
 
     public class ShootingBoss : AbstractBoss
     {
-        [SerializeField, Min(0)] protected int bulletAmount = 0;
+        [SerializeField, Min(5)] protected int bulletAmount = 5;
         [SerializeField] protected Transform bulletSpawnPoint = default;
         [SerializeField] protected ShootingBossBullet bulletPref = default;
 
         protected Vector2 shootDirection = default;
         protected ShootingBossBullet tempBullet = default;
-        protected ObjectPool<ShootingBossBullet> bulletPool = null;
+        protected IObjectPool<ShootingBossBullet> bulletPool = null;
 
         protected override void Awake()
         {
             base.Awake();
-            bulletPool = new ObjectPool<ShootingBossBullet>(GenerateBullet, null, null, null, true, bulletAmount);
+            bulletPool = new ObjectPool<ShootingBossBullet>(
+                GenerateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPoolObject, 
+                true, bulletAmount);
         }
 
         protected override void Attack()
         {
-            Debug.Log("Attacked => " + Time.time);
-
             shootDirection = (playerTr.position - transform.position).normalized;
             tempBullet = bulletPool.Get();
+            SetupBulletTransform();
+            RestartAttack();
+        }
+
+        protected override void PrepareAttack(float preparePercent)
+        {
+            Debug.Log(currentTimerValue.ToString());
+        }
+
+        protected virtual ShootingBossBullet GenerateBullet()
+        {
+            ShootingBossBullet result = Instantiate(bulletPref);
+            result.InitBullet(bulletPool);
+            return result;
+        }
+
+        protected virtual void OnGetFromPool(ShootingBossBullet bullet)
+            => bullet.transform.position = bulletSpawnPoint.position;
+
+        protected virtual void OnReleaseToPool(ShootingBossBullet bullet)
+        {
+            // TODO
+        }
+
+        protected virtual void OnDestroyPoolObject(ShootingBossBullet bullet)
+            => Destroy(bullet.gameObject);
+
+        protected virtual void SetupBulletTransform()
+        {
             Vector3 targ = playerTr.transform.position;
             targ.z = 0f;
 
@@ -36,19 +65,6 @@ namespace Boss.ShootinBoss
             tempBullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             tempBullet.transform.localScale = new Vector2(tempBullet.transform.localScale.x, shootDirection.x < 0 ? -1.0f : 1.0f);
             tempBullet.Shoot(shootDirection);
-            RestartAttack();
-        }
-
-        protected override void PrepareAttack(float preparePercent)
-        {
-            Debug.Log(currentTimerValue.ToString());
-        }
-
-        protected virtual ShootingBossBullet GenerateBullet()
-        {
-            tempBullet = Instantiate(bulletPref, bulletSpawnPoint.position, Quaternion.identity);
-            tempBullet.InitBullet(bulletPool);
-            return tempBullet;
         }
     }
 }

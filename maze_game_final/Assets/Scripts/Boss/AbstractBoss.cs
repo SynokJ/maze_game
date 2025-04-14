@@ -42,7 +42,7 @@ namespace Boss
             yield return new WaitForSeconds(TIMER_STEP_VALUE);
             currentTimerValue = currentTimerValue.Subtract(timeToSubstract);
 
-            if (currentTimerValue >= TimeSpan.Zero)
+            if (currentTimerValue > TimeSpan.Zero)
             {
                 PrepareAttack((secondsToAttack - (float)currentTimerValue.TotalSeconds) / secondsToAttack);
                 StartCoroutine(UpdateStageTimer());
