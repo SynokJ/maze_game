@@ -1,4 +1,4 @@
-namespace Boss
+namespace Boss.MovingBoss
 {
     using UnityEngine;
     using System.Collections;
@@ -9,17 +9,6 @@ namespace Boss
         [SerializeField, Range(0.0f, 1.0f)] protected float chanceToHit = 0.0f;
 
         protected Vector3 tempTargetPos = default;
-
-        protected override void InitPlayer()
-        {
-            base.InitPlayer();
-            tempTargetPos = playerTr.position;
-        }
-
-        protected override void DestroyPlayer()
-        {
-            canAttack = false;
-        }
 
         protected override void Attack()
         {

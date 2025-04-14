@@ -26,24 +26,15 @@ namespace Surroundings
         }
 
         protected virtual void OnEnable()
-        {
-            timer.OnTimerFinished += UpdateLightState;
-            timer.OnTimerChanged += CheckTime;
-        }
+            => timer.OnTimerFinished += UpdateLightState;
 
         protected virtual void OnDisable()
-        {
-            timer.OnTimerFinished -= UpdateLightState;
-            timer.OnTimerChanged -= CheckTime;
-        }
+            => timer.OnTimerFinished -= UpdateLightState;
 
         protected virtual void UpdateLightState()
         {
             targetLight.enabled = UnityEngine.Random.value <= chanceToDestroy;
             timer.StartTimer(instruction, secondsToCheck);
         }
-
-        protected virtual void CheckTime(TimeSpan timerVal)
-            => Debug.Log(timerVal.ToString());
     }
 }

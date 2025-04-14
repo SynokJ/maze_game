@@ -30,6 +30,9 @@ namespace Boss
             StartCoroutine(UpdateStageTimer());
         }
 
+        protected override void DestroyPlayer()
+            => canAttack = false;
+
         protected abstract void PrepareAttack(float preparePercent);
 
         protected abstract void Attack();
@@ -41,8 +44,6 @@ namespace Boss
 
             if (currentTimerValue >= TimeSpan.Zero)
             {
-                Debug.Log(currentTimerValue.ToString());
-
                 PrepareAttack((secondsToAttack - (float)currentTimerValue.TotalSeconds) / secondsToAttack);
                 StartCoroutine(UpdateStageTimer());
             }
