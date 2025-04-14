@@ -5154,6 +5154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900317481}
   - component: {fileID: 1900317482}
+  - component: {fileID: 1900317484}
   - component: {fileID: 1900317483}
   m_Layer: 0
   m_Name: ShootingBoss Prefab
@@ -5228,10 +5229,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 11400000, guid: b1bd1f78ead3364419738fa977cb8c28, type: 2}
-  secondsToAttack: 1
+  secondsToAttack: 3
   bulletAmount: 5
+  bossRb: {fileID: 1900317484}
   bulletSpawnPoint: {fileID: 1915032403}
+  movementSpeed: 0.05
   bulletPref: {fileID: 6981120931091283652, guid: af1cac34768bd1444bdf83490b1a7163, type: 3}
+--- !u!50 &1900317484
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900317480}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1915032402
 GameObject:
   m_ObjectHideFlags: 0

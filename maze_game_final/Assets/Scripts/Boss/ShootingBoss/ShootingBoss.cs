@@ -6,9 +6,12 @@ namespace Boss.ShootinBoss
     public class ShootingBoss : AbstractBoss
     {
         [SerializeField, Min(5)] protected int bulletAmount = 5;
+        [SerializeField] protected Rigidbody2D bossRb = default;
         [SerializeField] protected Transform bulletSpawnPoint = default;
+        [SerializeField, Min(0.0f)] protected float movementSpeed = 0.0f;
         [SerializeField] protected ShootingBossBullet bulletPref = default;
 
+        protected bool canMove = false;
         protected Vector2 shootDirection = default;
         protected ShootingBossBullet tempBullet = default;
         protected IObjectPool<ShootingBossBullet> bulletPool = null;
@@ -17,12 +20,23 @@ namespace Boss.ShootinBoss
         {
             base.Awake();
             bulletPool = new ObjectPool<ShootingBossBullet>(
-                GenerateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPoolObject, 
+                GenerateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPoolObject,
                 true, bulletAmount);
+        }
+
+        protected virtual void Update()
+        {
+            if (canMove && canAttack)
+            {
+                shootDirection = (playerTr.position - transform.position).normalized;
+                transform.localScale = new Vector2(shootDirection.x < 0 ? 1.0f : -1.0f, transform.localScale.y);
+                bossRb.MovePosition((Vector2)transform.position + shootDirection * movementSpeed);
+            }
         }
 
         protected override void Attack()
         {
+            canMove = false;
             shootDirection = (playerTr.position - transform.position).normalized;
             tempBullet = bulletPool.Get();
             SetupBulletTransform();
@@ -30,9 +44,7 @@ namespace Boss.ShootinBoss
         }
 
         protected override void PrepareAttack(float preparePercent)
-        {
-            Debug.Log(currentTimerValue.ToString());
-        }
+            => canMove = true;
 
         protected virtual ShootingBossBullet GenerateBullet()
         {
