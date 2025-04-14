@@ -1,13 +1,16 @@
 namespace Boss.ShootinBoss
 {
     using UnityEngine;
+    using UnityEngine.Rendering.Universal;
 
     [RequireComponent(typeof(ShootingBossBullet))]
     public class ShootingBossBulletView : MonoBehaviour
     {
-        [SerializeField] protected SpriteRenderer currentRenderer = default;
-        [SerializeField] protected SpriteRenderer currentShadowRenderer = default;
+        [SerializeField] protected Light2D bulletLight = default;
         [SerializeField] protected Collider2D currentCollider = default;
+        [SerializeField] protected SpriteRenderer currentRenderer = default;
+        [SerializeField] protected ParticleSystem bulletFlyEffect = default;
+        [SerializeField] protected SpriteRenderer currentShadowRenderer = default;
 
         protected ShootingBossBullet bulletController = default;
 
@@ -29,13 +32,20 @@ namespace Boss.ShootinBoss
         }
 
         protected virtual void ShowBullet()
-            => SetVisualByStatus(true);
+        {
+            SetVisualByStatus(true);
+            bulletFlyEffect.Play();
+        }
 
         protected virtual void HideBullet()
-            => SetVisualByStatus(false);
+        {
+            SetVisualByStatus(false);
+            bulletFlyEffect.Stop();
+        }
 
         protected virtual void SetVisualByStatus(bool status)
         {
+            bulletLight.enabled = status;
             currentRenderer.enabled = status;
             currentCollider.enabled = status;
             currentShadowRenderer.enabled = status;
