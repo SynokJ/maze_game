@@ -13,7 +13,6 @@ namespace Boss.ShootinBoss
 
         [SerializeField, Min(0.0f)] protected float bulletSpeed = 0.0f;
         [SerializeField] protected Rigidbody2D bulletRb = default;
-        [SerializeField] protected string sceneName = default;
 
         protected IObjectPool<ShootingBossBullet> pool = default;
         protected PlayerInteraction playerInteraction = default;
@@ -29,7 +28,7 @@ namespace Boss.ShootinBoss
 
             if (collision.TryGetComponent(out playerInteraction))
             {
-                SceneManager.LoadScene(sceneName);
+                playerInteraction.LoseGame();
             }
         }
 

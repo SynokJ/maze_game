@@ -20,8 +20,13 @@ namespace Player
             }
             else if (collision.gameObject.TryGetComponent(out tempBoss))
             {
-                SceneManager.LoadScene(sceneName);
+                LoseGame();
             }
+        }
+
+        public virtual void LoseGame()
+        {
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
