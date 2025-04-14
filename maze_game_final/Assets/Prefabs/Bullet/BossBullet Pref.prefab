@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   bulletRb: {fileID: 8411545954226215260}
+  sceneName: Lose
 --- !u!114 &7291151093050894153
 MonoBehaviour:
   m_ObjectHideFlags: 0
