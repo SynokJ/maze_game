@@ -3,7 +3,7 @@ guid: 622a5aad5cc3e444c97f96b27763f11d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -130,8 +143,8 @@ TextureImporter:
         y: 57
         width: 36
         height: 54
-      alignment: 9
-      pivot: {x: 0.55, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,8 +164,8 @@ TextureImporter:
         y: 57
         width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,15 +178,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_2
+      name: Boss_Shooting_10
       rect:
         serializedVersion: 2
-        x: 70
+        x: 310
         y: 57
         width: 27
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,15 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_3
+      name: Boss_Shooting_11
       rect:
         serializedVersion: 2
-        x: 99
+        x: 339
         y: 57
         width: 27
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,15 +220,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_4
+      name: Boss_Shooting_12
       rect:
         serializedVersion: 2
-        x: 128
+        x: 368
         y: 57
         width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,15 +241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_5
+      name: Boss_Shooting_13
       rect:
         serializedVersion: 2
-        x: 159
+        x: 399
         y: 57
         width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,15 +262,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_6
+      name: Boss_Shooting_14
       rect:
         serializedVersion: 2
-        x: 190
-        y: 57
-        width: 27
+        x: 1
+        y: 1
+        width: 36
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,15 +283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_7
+      name: Boss_Shooting_15
       rect:
         serializedVersion: 2
-        x: 219
-        y: 57
-        width: 27
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 39
+        y: 2
+        width: 36
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,15 +304,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_8
+      name: Boss_Shooting_16
       rect:
         serializedVersion: 2
-        x: 248
-        y: 57
-        width: 29
+        x: 77
+        y: 1
+        width: 36
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,15 +325,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_9
+      name: Boss_Shooting_17
       rect:
         serializedVersion: 2
-        x: 279
-        y: 57
-        width: 29
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 115
+        y: 2
+        width: 36
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,15 +346,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_10
+      name: Boss_Shooting_18
       rect:
         serializedVersion: 2
-        x: 310
-        y: 57
-        width: 27
+        x: 153
+        y: 1
+        width: 36
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,15 +367,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_11
+      name: Boss_Shooting_2
       rect:
         serializedVersion: 2
-        x: 339
+        x: 70
         y: 57
         width: 27
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_12
+      name: Boss_Shooting_3
       rect:
         serializedVersion: 2
-        x: 368
+        x: 99
         y: 57
-        width: 29
+        width: 27
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,15 +409,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_13
+      name: Boss_Shooting_4
       rect:
         serializedVersion: 2
-        x: 399
+        x: 128
         y: 57
         width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,15 +430,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_14
+      name: Boss_Shooting_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 36
+        x: 159
+        y: 57
+        width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,15 +451,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_15
+      name: Boss_Shooting_6
       rect:
         serializedVersion: 2
-        x: 39
-        y: 2
-        width: 36
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 190
+        y: 57
+        width: 27
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -459,15 +472,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_16
+      name: Boss_Shooting_7
       rect:
         serializedVersion: 2
-        x: 77
-        y: 1
-        width: 36
+        x: 219
+        y: 57
+        width: 27
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -480,15 +493,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_17
+      name: Boss_Shooting_8
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2
-        width: 36
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 248
+        y: 57
+        width: 29
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -501,15 +514,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Shooting_18
+      name: Boss_Shooting_9
       rect:
         serializedVersion: 2
-        x: 153
-        y: 1
-        width: 36
+        x: 279
+        y: 57
+        width: 29
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

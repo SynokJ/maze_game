@@ -18,6 +18,9 @@ namespace Player
 
         protected Vector2 movementStep = default;
 
+        protected virtual void Awake()
+            => movementSpeed.ResetValue();
+
         public virtual void SubscribeJoystick(Joystick joystick)
         {
             joystick.OnJoystickChanged += MovePlayer;
@@ -32,7 +35,7 @@ namespace Player
 
         protected virtual void MovePlayer(Vector2 movementDir)
         {
-            movementStep = movementDir * movementSpeed.Value * Time.deltaTime;
+            movementStep = movementDir * movementSpeed.Value;
             playerRb.MovePosition(playerRb.position + movementStep);
             OnPlayerMoved(movementDir);
         }
