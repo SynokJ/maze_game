@@ -4,15 +4,15 @@ namespace Gameplay
     using UnityEngine;
     using UnityEngine.UI;
 
-    [RequireComponent(typeof(GameplayController))]
+    [RequireComponent(typeof(AbstractGameplayController))]
     public class GameplayControllerView : MonoBehaviour
     {
         [SerializeField] protected Text timerText = default;
 
-        protected GameplayController controller = default;
+        protected AbstractGameplayController controller = default;
 
         protected virtual void Awake()
-            => controller = GetComponent<GameplayController>();
+            => controller = GetComponent<AbstractGameplayController>();
 
         protected virtual void OnEnable()
             => controller.OnTimerChanged += UpdateTimerView;
