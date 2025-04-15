@@ -200,7 +200,7 @@ MonoBehaviour:
   maxSpawnRadius: 4
   enemyPrefab: {fileID: 7903423115912281248, guid: 40f10dd6fbdce01478c63228ba1522cb, type: 3}
   bossRb: {fileID: 8266044480699545498}
-  movementSpeed: 0.05
+  movementSpeed: 0.1
 --- !u!114 &1268886577716103248
 MonoBehaviour:
   m_ObjectHideFlags: 0

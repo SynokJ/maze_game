@@ -26,12 +26,12 @@ namespace Boss.ShootinBoss
 
         protected virtual void Update()
         {
-            //if (canMove && canAttack)
-            //{
-            //    shootDirection = (playerTr.position - transform.position).normalized;
-            //    transform.localScale = new Vector2(shootDirection.x < 0 ? 1.0f : -1.0f, transform.localScale.y);
-            //    bossRb.MovePosition((Vector2)transform.position + shootDirection * movementSpeed);
-            //}
+            if (canMove && canAttack)
+            {
+                shootDirection = (playerTr.position - transform.position).normalized;
+                transform.localScale = new Vector2(shootDirection.x < 0 ? 1.0f : -1.0f, transform.localScale.y);
+                bossRb.MovePosition((Vector2)transform.position + shootDirection * movementSpeed);
+            }
         }
 
         protected override void Attack()
