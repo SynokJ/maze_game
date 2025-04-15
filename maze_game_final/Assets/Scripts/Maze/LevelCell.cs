@@ -2,10 +2,11 @@ namespace Level
 {
     using UnityEngine;
 
-    public class LevelCell 
+    public class LevelCell
     {
         protected const char WALKABLE_AREA_SIGN = '-';
         protected const char UNWALKABLE_AREA_SIGN = '*';
+        protected const char COLLECTABLE_AREA_SIGN = 'x';
 
         public LevelCell RootNode => rootNode;
         public LevelCell[] Neighbors => currentNeighbors;
@@ -35,7 +36,7 @@ namespace Level
 
         public virtual void SetPositionState(LevelCellState state)
             => this.state = state;
-        
+
         public virtual void SetType(LevelCellType type)
             => this.type = type;
 
@@ -47,14 +48,19 @@ namespace Level
         }
 
         public override string ToString()
-            => state == LevelCellState.unwalkable ? UNWALKABLE_AREA_SIGN.ToString() : WALKABLE_AREA_SIGN.ToString();
+        {
+            if (state == LevelCellState.collectables)
+                return COLLECTABLE_AREA_SIGN.ToString();
+            return state == LevelCellState.unwalkable ? UNWALKABLE_AREA_SIGN.ToString() : WALKABLE_AREA_SIGN.ToString();
+        }
     }
 
     public enum LevelCellState
     {
         unwalkable = 0,
         walkable = 1,
-        analyzing = 2
+        analyzing = 2,
+        collectables = 3
     }
 
     public enum LevelCellType
