@@ -1,10 +1,13 @@
-namespace Boss.ShootinBoss
+namespace Boss.ShootingBoss
 {
+    using System;
     using UnityEngine;
     using UnityEngine.Pool;
 
     public class ShootingBoss : AbstractBoss
     {
+        public event Action OnAttackProceeded = delegate { }; 
+
         [SerializeField, Min(5)] protected int bulletAmount = 5;
         [SerializeField] protected Rigidbody2D bossRb = default;
         [SerializeField] protected Transform bulletSpawnPoint = default;
@@ -37,6 +40,7 @@ namespace Boss.ShootinBoss
         protected override void Attack()
         {
             canMove = false;
+            OnAttackProceeded();
             shootDirection = (playerTr.position - transform.position).normalized;
             tempBullet = bulletPool.Get();
             SetupBulletTransform();
