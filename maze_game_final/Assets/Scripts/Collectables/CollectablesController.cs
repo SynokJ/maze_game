@@ -20,8 +20,8 @@ namespace Collectable
         protected Vector2 horOffset = default;
         protected Vector2 verOffset = default;
         protected LevelCell[] availableCell = null;
-        protected AbstractCollectable tempCollectable = default;
         protected LevelCell tempLevelCell = default;
+        protected AbstractCollectable tempCollectable = default;
 
         protected virtual void OnEnable()
             => levelView.OnWallsGenerated += SpawnCollectables;
@@ -35,6 +35,7 @@ namespace Collectable
             for (int i = 0; i < collectablesAmount; ++i)
             {
                 tempCollectableId = UnityEngine.Random.Range(0, collectables.Length);
+
                 tempLevelCell = availableCell[UnityEngine.Random.Range(0, availableCell.Length)];
                 SpawnCollectableByCell(tempLevelCell, collectables[tempCollectableId]);
                 tempLevelCell.SetPositionState(LevelCellState.collectables);
@@ -51,6 +52,5 @@ namespace Collectable
             tempCollectable = Instantiate(collectablePrefab, currentCell.Position * 2.0f + horOffset + verOffset, Quaternion.identity);
             tempCollectable.transform.Translate(Vector2.left * levelController.LevelWidth * 1.3f + Vector2.down * levelController.LevelHeight * 0.5f);
         }
-
     }
 }
