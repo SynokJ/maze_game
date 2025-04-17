@@ -8,11 +8,13 @@ namespace Collectable
     public abstract class AbstractCollectable : MonoBehaviour
     {
         public event Action OnCollectablePicked = delegate { };
+        public bool IsCollected => isCollected;
 
         [SerializeField] protected CollectablesDataSO collectablesContainer = default;
         [SerializeField, Min(1.0f)] protected float delay = 1.0f;
 
         protected PlayerInteraction playerInteraction = default;
+        protected bool isCollected = false;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -24,6 +26,7 @@ namespace Collectable
 
         protected virtual void ActivateCollectable()
         {
+            isCollected = true;
             OnCollectablePicked();
             collectablesContainer.RemoveCollectable(this);
             StartCoroutine(ActivateByLifeTime());
