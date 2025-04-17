@@ -12,7 +12,7 @@ namespace Boss
 
         protected virtual void Awake()
         {
-            tempBoss = bosses[Random.Range(0, bosses.Count)];
+            tempBoss = bosses[2];//Random.Range(0, bosses.Count)];
             Instantiate(tempBoss, spawnPos.position, Quaternion.identity);
         }
     }

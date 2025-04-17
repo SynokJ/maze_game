@@ -139,8 +139,8 @@ TextureImporter:
       name: Boss_Shooting_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 57
+        x: 11
+        y: 67
         width: 36
         height: 54
       alignment: 7
@@ -160,10 +160,10 @@ TextureImporter:
       name: Boss_Shooting_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 57
+        x: 52
+        y: 67
         width: 29
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       name: Boss_Shooting_10
       rect:
         serializedVersion: 2
-        x: 310
-        y: 57
+        x: 368
+        y: 67
         width: 27
         height: 54
       alignment: 7
@@ -202,10 +202,10 @@ TextureImporter:
       name: Boss_Shooting_11
       rect:
         serializedVersion: 2
-        x: 339
-        y: 57
+        x: 403
+        y: 67
         width: 27
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
       name: Boss_Shooting_12
       rect:
         serializedVersion: 2
-        x: 368
-        y: 57
+        x: 437
+        y: 67
         width: 29
         height: 54
       alignment: 7
@@ -244,10 +244,10 @@ TextureImporter:
       name: Boss_Shooting_13
       rect:
         serializedVersion: 2
-        x: 399
-        y: 57
+        x: 472
+        y: 67
         width: 29
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +265,8 @@ TextureImporter:
       name: Boss_Shooting_14
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
+        x: 11
+        y: 0
         width: 36
         height: 54
       alignment: 7
@@ -286,8 +286,8 @@ TextureImporter:
       name: Boss_Shooting_15
       rect:
         serializedVersion: 2
-        x: 39
-        y: 2
+        x: 62
+        y: 0
         width: 36
         height: 53
       alignment: 7
@@ -307,8 +307,8 @@ TextureImporter:
       name: Boss_Shooting_16
       rect:
         serializedVersion: 2
-        x: 77
-        y: 1
+        x: 113
+        y: 0
         width: 36
         height: 54
       alignment: 7
@@ -328,8 +328,8 @@ TextureImporter:
       name: Boss_Shooting_17
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2
+        x: 164
+        y: 0
         width: 36
         height: 53
       alignment: 7
@@ -349,8 +349,8 @@ TextureImporter:
       name: Boss_Shooting_18
       rect:
         serializedVersion: 2
-        x: 153
-        y: 1
+        x: 215
+        y: 0
         width: 36
         height: 54
       alignment: 7
@@ -370,8 +370,8 @@ TextureImporter:
       name: Boss_Shooting_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 57
+        x: 88
+        y: 67
         width: 27
         height: 54
       alignment: 7
@@ -391,10 +391,10 @@ TextureImporter:
       name: Boss_Shooting_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 57
+        x: 123
+        y: 67
         width: 27
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,8 +412,8 @@ TextureImporter:
       name: Boss_Shooting_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 57
+        x: 157
+        y: 67
         width: 29
         height: 54
       alignment: 7
@@ -433,10 +433,10 @@ TextureImporter:
       name: Boss_Shooting_5
       rect:
         serializedVersion: 2
-        x: 159
-        y: 57
+        x: 192
+        y: 67
         width: 29
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,8 +454,8 @@ TextureImporter:
       name: Boss_Shooting_6
       rect:
         serializedVersion: 2
-        x: 190
-        y: 57
+        x: 228
+        y: 67
         width: 27
         height: 54
       alignment: 7
@@ -475,10 +475,10 @@ TextureImporter:
       name: Boss_Shooting_7
       rect:
         serializedVersion: 2
-        x: 219
-        y: 57
+        x: 263
+        y: 67
         width: 27
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,8 +496,8 @@ TextureImporter:
       name: Boss_Shooting_8
       rect:
         serializedVersion: 2
-        x: 248
-        y: 57
+        x: 297
+        y: 67
         width: 29
         height: 54
       alignment: 7
@@ -517,10 +517,10 @@ TextureImporter:
       name: Boss_Shooting_9
       rect:
         serializedVersion: 2
-        x: 279
-        y: 57
+        x: 332
+        y: 67
         width: 29
-        height: 54
+        height: 53
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

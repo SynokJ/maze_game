@@ -1,10 +1,9 @@
-namespace Boss.ShootinBoss
+namespace Boss.ShootingBoss
 {
     using Player;
     using System;
     using UnityEngine;
     using UnityEngine.Pool;
-    using UnityEngine.SceneManagement;
 
     public class ShootingBossBullet : MonoBehaviour
     {

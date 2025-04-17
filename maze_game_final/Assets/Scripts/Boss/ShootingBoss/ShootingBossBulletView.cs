@@ -1,4 +1,4 @@
-namespace Boss.ShootinBoss
+namespace Boss.ShootingBoss
 {
     using UnityEngine;
     using UnityEngine.Rendering.Universal;
