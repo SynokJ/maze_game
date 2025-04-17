@@ -2,13 +2,23 @@ namespace Boss.MovingBoss
 {
     using UnityEngine;
     using System.Collections;
+    using System;
 
     public class MovingBoss : AbstractBoss
     {
+        public event Action<bool> OnMoving = delegate { };
+
         [SerializeField] protected ParticleSystem slideEffect = default;
         [SerializeField, Range(0.0f, 1.0f)] protected float chanceToHit = 0.0f;
 
         protected Vector3 tempTargetPos = default;
+        protected Vector2 movementDir = default;
+
+        protected virtual void Update()
+        {
+            movementDir = (playerTr.position - transform.position).normalized;
+            OnMoving(movementDir.x >= 0);
+        }
 
         protected override void Attack()
         {
