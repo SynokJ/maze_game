@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShopBuyButtonView : MonoBehaviour
+namespace Shop
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEngine;
 
-    // Update is called once per frame
-    void Update()
+    [RequireComponent(typeof(ShopBuyButton))]
+    public class ShopBuyButtonView : MonoBehaviour
     {
-        
+        [SerializeField] protected ShopDataContainer shopDataContainer = default;
+
+        protected ShopBuyButton shopBuyButton = default;
+
+        protected virtual void Awake()
+        {
+            shopBuyButton = GetComponent<ShopBuyButton>();
+        }
     }
 }
