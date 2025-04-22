@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShopScrollButton : MonoBehaviour
+namespace Shop
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEngine;
+    using UnityEngine.UI;
 
-    // Update is called once per frame
-    void Update()
+    [RequireComponent(typeof(Button))]
+    public class ShopScrollButton : MonoBehaviour
     {
-        
+        [SerializeField] protected ShopDataContainer shopDataContainer = default;
+        [SerializeField] protected bool isMoveNext = false;
+
+        protected Button currentButton = default;
+
+        protected virtual void Awake()
+            => currentButton = GetComponent<Button>();
+
+        protected virtual void OnEnable()
+            => currentButton.onClick.AddListener(SwitchPlayer);
+
+        protected virtual void OnDisable()
+            => currentButton.onClick.RemoveListener(SwitchPlayer);
+
+        protected virtual void SwitchPlayer()
+        {
+            if (isMoveNext)
+            {
+                shopDataContainer.CurrentId++;
+            } else
+            {
+                shopDataContainer.CurrentId--;
+            }
+        }
     }
 }
