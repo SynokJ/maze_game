@@ -11,10 +11,9 @@ namespace Player
         public event Action OnPlayerDestroyed = delegate { };
         public GameObject player = default;
 
-        public void InitPlayer(GameObject player)
+        public void InitPlayer(GameObject player, bool rewriteStatus = false)
         {
             this.player = player;
-            isPlayerInited = player != null;
             OnPlayerInited();
         }
 
