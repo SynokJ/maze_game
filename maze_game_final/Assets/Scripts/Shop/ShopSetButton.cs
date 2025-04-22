@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShopSetButton : MonoBehaviour
+namespace Shop
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using Player;
+    using UnityEngine;
+    using UnityEngine.UI;
 
-    // Update is called once per frame
-    void Update()
+    [RequireComponent(typeof(Button))]
+    public class ShopSetButton : MonoBehaviour
     {
-        
+        [SerializeField] protected PlayerContainer playerContainer = default;
+        [SerializeField] protected ShopDataContainer shopDataContainer = default;
+
+        protected Button currentButton = default;
+
+        protected virtual void Awake()
+            => currentButton = GetComponent<Button>();
+
+        protected virtual void OnEnable()
+            => currentButton.onClick.AddListener(SetCurrentPlayer);
+
+        protected virtual void OnDisable()
+            => currentButton.onClick.RemoveListener(SetCurrentPlayer);
+
+        protected virtual void SetCurrentPlayer()
+            => playerContainer.InitPlayer(shopDataContainer.CurrentPlayerController.gameObject, true);
     }
 }

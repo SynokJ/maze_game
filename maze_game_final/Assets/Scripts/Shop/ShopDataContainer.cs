@@ -8,6 +8,8 @@ namespace Shop
     [CreateAssetMenu(fileName = nameof(ShopDataContainer), menuName = "Shop/" + nameof(ShopDataContainer))]
     public class ShopDataContainer : ScriptableObject
     {
+        protected string SAVE_ID_KEY_NAME = "CurrentPlayerID";
+
         public event Action<PlayerMovement> OnPlayerChanged = delegate { };
         public PlayerMovement CurrentPlayerController => currentPlayerController;
         public IReadOnlyList<PlayerMovement> PlayerControllers => playerControllers;
@@ -26,6 +28,8 @@ namespace Shop
                 }
 
                 currentId = value;
+                PlayerPrefs.SetInt(SAVE_ID_KEY_NAME, currentId);
+                currentPlayerController = playerControllers[currentId];
                 OnPlayerChanged(playerControllers[currentId]);
             }
         }
@@ -41,6 +45,8 @@ namespace Shop
             {
                 currentPlayerController = playerControllers[currentId];
             }
+            
+            currentId = PlayerPrefs.GetInt(SAVE_ID_KEY_NAME, 0);
         }
 
         public virtual void SwitchToNextPlayer()
