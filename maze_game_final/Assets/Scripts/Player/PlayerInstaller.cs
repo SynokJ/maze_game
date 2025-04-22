@@ -11,11 +11,7 @@ namespace Player
         protected GameObject tempPlayer = default;
 
         protected virtual void Start()
-        {
-            ResetPlayer();
-            tempPlayer = Instantiate(playerPref, positionToSpawn.position, Quaternion.identity);
-            playerContainer.InitPlayer(tempPlayer);
-        }
+            => SpawnPlayer();
 
         protected virtual void ResetPlayer()
         {
@@ -23,6 +19,13 @@ namespace Player
             {
                 playerContainer.DestroyPlayer();
             }
+        }
+
+        protected virtual void SpawnPlayer()
+        {
+            ResetPlayer();
+            tempPlayer = Instantiate(playerPref, positionToSpawn.position, Quaternion.identity);
+            playerContainer.InitPlayer(tempPlayer);
         }
     }
 }
