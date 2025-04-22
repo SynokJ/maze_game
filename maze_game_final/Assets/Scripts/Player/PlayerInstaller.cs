@@ -15,7 +15,7 @@ namespace Player
 
         protected virtual void ResetPlayer()
         {
-            if(tempPlayer != null)
+            if (tempPlayer != null)
             {
                 playerContainer.DestroyPlayer();
             }
@@ -24,7 +24,14 @@ namespace Player
         protected virtual void SpawnPlayer()
         {
             ResetPlayer();
-            tempPlayer = Instantiate(playerPref, positionToSpawn.position, Quaternion.identity);
+            if (playerContainer.playerToSave == null)
+            {
+                tempPlayer = Instantiate(playerPref, positionToSpawn.position, Quaternion.identity);
+            }
+            else
+            {
+                tempPlayer = Instantiate(playerContainer.playerToSave, positionToSpawn.position, Quaternion.identity);
+            }
             playerContainer.InitPlayer(tempPlayer);
         }
     }

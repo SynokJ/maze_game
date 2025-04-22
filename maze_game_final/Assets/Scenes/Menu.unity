@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5027403518403611569, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
       propertyPath: openSceneName
-      value: Game
+      value: Shop
       objectReference: {fileID: 0}
     - target: {fileID: 5962743005019108425, guid: b3515d2983316d0418fdb911f2b912d1, type: 3}
       propertyPath: m_AnchorMax.y

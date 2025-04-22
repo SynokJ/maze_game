@@ -9,18 +9,22 @@ namespace Player
         public bool isPlayerInited = false;
         public event Action OnPlayerInited = delegate { };
         public event Action OnPlayerDestroyed = delegate { };
-        public GameObject player = default;
+        public GameObject playerToSave = default;
+        public GameObject playerToSpawn = default;
 
-        public void InitPlayer(GameObject player)
+        public void InitPlayer(GameObject player, bool rewriteStatus = false)
         {
-            this.player = player;
-            isPlayerInited = player != null;
+            playerToSpawn = player;
+            if (rewriteStatus)
+            {
+                playerToSave = player;
+            }
             OnPlayerInited();
         }
 
         public void DestroyPlayer()
         {
-            Destroy(player);
+            Destroy(playerToSpawn);
             OnPlayerDestroyed();
         }
     }

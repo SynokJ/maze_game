@@ -26,6 +26,7 @@ namespace Shop
                 }
 
                 currentId = value;
+                currentPlayerController = playerControllers[currentId];
                 OnPlayerChanged(playerControllers[currentId]);
             }
         }

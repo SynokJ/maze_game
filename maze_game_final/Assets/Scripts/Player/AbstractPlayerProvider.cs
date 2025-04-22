@@ -21,7 +21,7 @@ namespace Player
         }
 
         protected virtual void InitPlayer()
-            => playerContainer.player.TryGetComponent(out controller);
+            => playerContainer.playerToSpawn.TryGetComponent(out controller);
 
         protected abstract void DestroyPlayer();
     }
