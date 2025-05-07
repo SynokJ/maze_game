@@ -7,6 +7,7 @@ namespace Audio
     [RequireComponent(typeof(Button))]
     public class ClickButton : SoundControllerProvider
     {
+        [SerializeField] protected AudioClip clickSound = default;
         protected Button button = default;
 
         protected virtual void Awake()
@@ -30,7 +31,7 @@ namespace Audio
         {
             if (container.IsInited)
             {
-                soundController.PlayClickSound();
+                soundController.PlaySound(clickSound);
             }
         }
     }

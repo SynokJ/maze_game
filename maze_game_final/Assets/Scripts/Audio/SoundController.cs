@@ -5,7 +5,6 @@ namespace Audio
     [RequireComponent(typeof(AudioSource))]
     public class SoundController : MonoBehaviour
     {
-        [SerializeField] protected AudioClip clickSound = default;
         [SerializeField] protected SoundControllerContainer container = default;
 
         protected AudioSource audioSource = default;
@@ -16,7 +15,7 @@ namespace Audio
         protected virtual void Start()
            => container.Controller = this;
 
-        public virtual void PlayClickSound()
+        public virtual void PlaySound(AudioClip clickSound)
             => audioSource.PlayOneShot(clickSound);
     }
 }
