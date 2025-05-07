@@ -1,6 +1,7 @@
 namespace UI.Utils
 {
     using UnityEngine;
+    using System.Collections;
     using UnityEngine.SceneManagement;
 
     /// <summary>
@@ -11,6 +12,20 @@ namespace UI.Utils
         [SerializeField] protected string openSceneName = default;
 
         protected override void OnButtonClicked()
-            => SceneManager.LoadSceneAsync(openSceneName);
+        {
+            StartCoroutine(OpenSceneWithDelay());
+        }
+
+        protected virtual IEnumerator OpenSceneWithDelay()
+        {
+            yield return new WaitForSeconds(1.0f);
+
+            AsyncOperation currentTask = SceneManager.LoadSceneAsync(openSceneName);
+            while (!currentTask.isDone)
+            {
+                Debug.Log(currentTask.progress + "=>" + Time.time);
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }
