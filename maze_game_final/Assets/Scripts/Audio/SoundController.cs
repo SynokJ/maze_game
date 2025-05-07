@@ -15,7 +15,20 @@ namespace Audio
         protected virtual void Start()
            => container.Controller = this;
 
-        public virtual void PlaySound(AudioClip clickSound)
-            => audioSource.PlayOneShot(clickSound);
+        public virtual void PlaySoundEffect(AudioClip clip)
+            => audioSource.PlayOneShot(clip);
+
+        public virtual void PlaySoundEffectNonRepeat(AudioClip clip)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(clip);
+            }
+        }
+
+        public virtual void StopSoundEffect()
+        {
+            audioSource.Stop();
+        }
     }
 }

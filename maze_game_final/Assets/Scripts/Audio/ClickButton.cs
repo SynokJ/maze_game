@@ -31,7 +31,7 @@ namespace Audio
         {
             if (container.IsInited)
             {
-                soundController.PlaySound(clickSound);
+                soundController.PlaySoundEffect(clickSound);
             }
         }
     }

@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 211581745706556323}
   - component: {fileID: 3217560071272830865}
   - component: {fileID: 2027068423588040985}
+  - component: {fileID: -1002789644157943386}
   m_Layer: 0
   m_Name: Ellie Pref
   m_TagString: Untagged
@@ -248,6 +249,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Lose
+--- !u!114 &-1002789644157943386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267282544059225371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9495251493521624cbe68a36cbbb8777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: 61287cca64e0cd94bb65f6ef9b8e7d9b, type: 2}
+  footstepsAudio: {fileID: 8300000, guid: c6951ed20c7bd374289b3de9c82c80ef, type: 3}
+  movement: {fileID: 211581745706556323}
 --- !u!1 &7690655377712957954
 GameObject:
   m_ObjectHideFlags: 0
