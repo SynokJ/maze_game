@@ -3,16 +3,25 @@ namespace UI.Utils
     using UnityEngine;
     using System.Collections;
     using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
 
     /// <summary>
     /// class of open scene button
     /// </summary>
     public class OpenSceneButton : AbstractButtonView
     {
+        [SerializeField] protected Image blockImage = default;
         [SerializeField] protected string openSceneName = default;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            blockImage.enabled = false;
+        }
 
         protected override void OnButtonClicked()
         {
+            blockImage.enabled = true;
             StartCoroutine(OpenSceneWithDelay());
         }
 
