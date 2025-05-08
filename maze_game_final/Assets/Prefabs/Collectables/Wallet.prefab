@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1429774511870896169}
   - component: {fileID: 40888076467194939}
   - component: {fileID: 484717968641759538}
+  - component: {fileID: 611337859639415395}
   m_Layer: 0
   m_Name: Wallet
   m_TagString: Untagged
@@ -189,6 +190,20 @@ MonoBehaviour:
   collectableCollider: {fileID: 1429774511870896169}
   collectableRenderer: {fileID: 6756929326272147131}
   collectableData: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
+--- !u!114 &611337859639415395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964139474583917222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9feb7f62f8fc7347a54fcbdbd059a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: 61287cca64e0cd94bb65f6ef9b8e7d9b, type: 2}
+  collectClip: {fileID: 8300000, guid: f6e4bfb3d9e500746bda40d2e9b9b83a, type: 3}
 --- !u!1 &3144687645113625627
 GameObject:
   m_ObjectHideFlags: 0

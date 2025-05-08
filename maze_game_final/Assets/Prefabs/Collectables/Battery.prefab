@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1213384555228305611}
   - component: {fileID: 4101193211614307083}
   - component: {fileID: 1370601954690567132}
+  - component: {fileID: 263445238962462660}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -191,6 +192,20 @@ MonoBehaviour:
   collectableCollider: {fileID: 1213384555228305611}
   collectableRenderer: {fileID: 90997132869388256}
   collectableData: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
+--- !u!114 &263445238962462660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745579711224180779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9feb7f62f8fc7347a54fcbdbd059a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: 61287cca64e0cd94bb65f6ef9b8e7d9b, type: 2}
+  collectClip: {fileID: 8300000, guid: 9c470ea4cfe0f2d448ed0d37dcd80318, type: 3}
 --- !u!1 &3826956971722274572
 GameObject:
   m_ObjectHideFlags: 0

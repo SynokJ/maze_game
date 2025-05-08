@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6442786279737089929}
   - component: {fileID: 7751057866263372958}
   - component: {fileID: 1379524086889285923}
+  - component: {fileID: 737282335297437856}
   m_Layer: 0
   m_Name: Coffee
   m_TagString: Untagged
@@ -189,6 +190,20 @@ MonoBehaviour:
   collectableCollider: {fileID: 6442786279737089929}
   collectableRenderer: {fileID: 3205803045331525388}
   collectableData: {fileID: 11400000, guid: fc4644a0f31f43b4d8031d98c2f4f47d, type: 2}
+--- !u!114 &737282335297437856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722446923821330913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9feb7f62f8fc7347a54fcbdbd059a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: 61287cca64e0cd94bb65f6ef9b8e7d9b, type: 2}
+  collectClip: {fileID: 8300000, guid: 5e4ec5a237aaebc45a08ff2918e40159, type: 3}
 --- !u!1 &8121883569078725336
 GameObject:
   m_ObjectHideFlags: 0
